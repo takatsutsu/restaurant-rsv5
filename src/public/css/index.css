@@ -1,0 +1,52 @@
+
+.main_head{
+    text-align: center;
+}
+
+.form__error{
+    color:rgb(227, 13, 13)
+}
+
+
+.form_btn{
+    text-align: center;
+}
+
+.all_btn{
+    text-align: center;
+}
+
+
+.work_start_btn {
+    height: 70px;
+    width: 150px;
+    font-size: 25px;
+}
+
+.work_end_btn {
+    height: 70px;
+    width: 150px;
+    font-size: 25px;
+}
+
+.break_start_btn {
+    height: 70px;
+    width: 150px;
+    font-size: 25px;
+}
+
+.break_end_btn{
+    height: 70px;
+    width: 150px;
+    font-size: 25px;
+    }
+    
+.work_btn{
+            display: flex;
+            justify-content: center;
+        }
+
+.break_btn{
+            display: flex;
+            justify-content: center;
+        }
