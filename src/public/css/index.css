@@ -1,52 +1,25 @@
-
-.main_head{
-    text-align: center;
-}
-
-.form__error{
-    color:rgb(227, 13, 13)
-}
-
-
-.form_btn{
-    text-align: center;
-}
-
-.all_btn{
-    text-align: center;
-}
-
-
-.work_start_btn {
-    height: 70px;
-    width: 150px;
-    font-size: 25px;
-}
-
-.work_end_btn {
-    height: 70px;
-    width: 150px;
-    font-size: 25px;
-}
-
-.break_start_btn {
-    height: 70px;
-    width: 150px;
-    font-size: 25px;
-}
-
-.break_end_btn{
-    height: 70px;
-    width: 150px;
-    font-size: 25px;
+.grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
     }
-    
-.work_btn{
-            display: flex;
-            justify-content: center;
-        }
-
-.break_btn{
-            display: flex;
-            justify-content: center;
-        }
+    .shop-card {
+        border: 1px solid #ddd;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+    }
+    .shop-card img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+    .btn {
+        display: inline-block;
+        padding: 10px 20px;
+        margin-top: 10px;
+        text-decoration: none;
+        color: #fff;
+        background-color: #007bff;
+        border-radius: 5px;
+    }

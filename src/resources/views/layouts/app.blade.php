@@ -16,7 +16,7 @@
             <div class="header_band_box">
                 <div class="header_box">
                     <a class="header_comp-logo" href="">
-                        Attendance
+                        Restaurant info
                     </a>
                     <nav class="header_tool">
                         <ul class="header_nav">

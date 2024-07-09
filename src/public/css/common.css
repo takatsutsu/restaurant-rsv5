@@ -1,5 +1,5 @@
 .header_band {
-    background: #0610c5;
+    background: #011a01;
     height: 15vh;
 }
 
@@ -26,7 +26,6 @@
 .header_tool {
     width: 33%;
     margin-top: 20px;
-
 }
 
 .header_nav {
@@ -49,7 +48,7 @@
 }
 
 .footer {
-    background: #0610c5;
+    background: #011a01;
     margin-top: auto;
 }
 

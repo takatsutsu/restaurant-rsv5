@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ShopController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,12 @@ use App\Http\Controllers\AuthController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/user_complete', [AuthController::class, 'user_complete']);
+Route::get('/', [ShopController::class, 'index']);
+
+
+Route::middleware('auth')->group(function () {
 });
-Route::get('/', [AuthController::class, 'index']);

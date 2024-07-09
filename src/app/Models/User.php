@@ -20,6 +20,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'email_verified_at',
         'password',
     ];
 
@@ -41,4 +42,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function reservation()
+    {
+        return $this->hasMany("App\Models\Reservation");
+    }
+
+    public function favorite()
+    {
+        return $this->hasMany("App\Models\Favorite");
+    }
 }
