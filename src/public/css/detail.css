@@ -1,0 +1,41 @@
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .shop-detail img {
+        max-width: 100%;
+        height: auto;
+    }
+    .reservation-form {
+        margin-top: 20px;
+        background-color: #007bff;
+        padding: 20px;
+        border-radius: 10px;
+        color: white;
+    }
+    .form-group {
+        margin-bottom: 15px;
+    }
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    .form-group input, .form-group select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: none;
+    }
+    button {
+        padding: 10px 20px;
+        background-color: #0056b3;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #003f7f;
+    }

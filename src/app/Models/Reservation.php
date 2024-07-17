@@ -15,6 +15,7 @@ class Reservation extends Model
         'reserve_date',
         'reserve_time',
         'reserve_datetime',
+        'reserve_num'
     ];
 
     public function user()
