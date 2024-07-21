@@ -24,13 +24,17 @@
                     <h2>{{ $shop->shop_name }}</h2>
                     <p>#{{ $shop->area->area_name }} #{{ $shop->genre->genre_name }}</p>
                     <a href="/detail/{{ $shop->id }}" class="btn btn-primary">詳しく見る</a>
-                </form>
-                <form action="">
+
                     @if (Auth::check() && Auth::user()->hasVerifiedEmail())
-                
-                    <input type="hidden" name="id_favorite" value="{{ $shop->id}}" />
-                    <a href="/favo_store/{{ $shop->id }}" class="btn btn-favorite">🤍</a>
+                    @if($shop->is_favorite)
                     <a href="/favo_delete/{{ $shop->id }}" class="btn btn-favorite">💛</a>
+                    @else
+                    <a href="/favo_store/{{ $shop->id }}" class="btn btn-favorite">🤍</a>
+                    @endif
+
+                    <!-- <input type="hidden" name="id_favorite" value="{{ $shop->id}}" />
+                    <a href="/favo_store/{{ $shop->id }}" class="btn btn-favorite">🤍</a>
+                    <a href="/favo_delete/{{ $shop->id }}" class="btn btn-favorite">💛</a> -->
                     @endif
                 </form>
             </div>

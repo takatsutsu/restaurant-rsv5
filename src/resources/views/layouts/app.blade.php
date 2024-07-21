@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Attendance</title>
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/ham_menu.css') }}">
     @yield('css')
 </head>
 
@@ -16,27 +17,58 @@
             <div class="header_band_box">
                 <div class="header_box">
                     <a class="header_comp-logo" href="">
-                        Restaurant info
+                        Rese
                     </a>
-                    <nav class="header_tool">
-                        <ul class="header_nav">
-                            @if (Auth::check() && Auth::user()->hasVerifiedEmail())
-                            <li class="header-nav__item">
-                                <a class="header-nav__link" href="/sumsearch">日付別集計</a>
-                            </li>
-                            <li class="header-nav__item">
-                                <a class="header-nav__link" href="/mypage">マイページ</a>
-                            </li>
-                            <li class="header-nav__item">
-                                <form class="form" action="/logout" method="post">
-                                    @csrf
-                                    <button class="header-nav__button">ログアウト</button>
-                                </form>
-                            </li>
-                            @endif
-                        </ul>
-                    </nav>
                 </div>
+            </div>
+            <div class="hamburger-menu">
+                <input type="checkbox" id="menu-btn-check">
+                <label for="menu-btn-check" class="menu-btn"><span></span></label>
+                <!--ここからメニュー-->
+                <div class="menu-content">
+                    <ul>
+                        @if (Auth::check() && Auth::user()->hasVerifiedEmail())
+                        <li>
+                            <form class="form" action="/" method="get">
+                                @csrf
+                                <button class="header-nav__button">Home</button>
+                            </form>
+                        </li>
+                        <li>
+                            <form class="form" action="/logout" method="post">
+                                @csrf
+                                <button class="header-nav__button">Logout</button>
+                            </form>
+                        </li>
+                        <li>
+                            <form class="form" action="/mypage" method="get">
+                                @csrf
+                                <button class="header-nav__button">Mypage</button>
+                            </form>
+                        </li>
+                        @else
+                        <li>
+                            <form class="form" action="/" method="get">
+                                @csrf
+                                <button class="header-nav__button">Home</button>
+                            </form>
+                        </li>
+                        <li>
+                            <form class="form" action="/register" method="get">
+                                @csrf
+                                <button class="header-nav__button">Registration</button>
+                            </form>
+                        </li>
+                        <li>
+                            <form class="form" action="/login" method="get">
+                                @csrf
+                                <button class="header-nav__button">Login</button>
+                            </form>
+                        </li>
+                        @endif
+                    </ul>
+                </div>
+                <!--ここまでメニュー-->
             </div>
         </header>
 

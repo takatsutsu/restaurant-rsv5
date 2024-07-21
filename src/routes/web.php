@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\ReserveController;
+use App\Http\Controllers\MypageController;
 use App\Models\Favorite;
 
 /*
@@ -30,4 +31,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/reserve_store', [ReserveController::class, 'reserve_store']);
     Route::get('/favo_store/{id}', [FavoriteController::class, 'favo_store']);
     Route::get('/favo_delete/{id}', [FavoriteController::class, 'favo_delete']);
+    Route::get('/mypage', [MypageController::class, 'mypage']);
+
 });
