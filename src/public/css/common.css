@@ -1,7 +1,7 @@
 .header_band {
-    background:white;
+    background: white;
     height: 15vh;
-     position: fixed; /* これを追加 */
+    position: fixed; /* これを追加 */
     top: 0; /* これを追加 */
     width: 100%; /* これを追加 */
     z-index: 1000; /* これを追加して、他の要素の上に表示 */
