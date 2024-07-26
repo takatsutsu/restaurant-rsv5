@@ -33,4 +33,15 @@ class FavoriteController extends Controller
 
         return redirect('/');
     }
+
+
+    public function my_favo_delete($id)
+    {
+        $user = Auth::User();
+        Favorite::where('user_id', $user->id)
+            ->where('shop_id', $id)
+            ->delete();
+
+        return redirect('/mypage');
+    }
 }

@@ -14,7 +14,29 @@
 
 <body>
     <div class="container">
-        <h1>Shops</h1>
+        <!-- 検索フォームの追加 -->
+        <div class="search-form">
+            <form action="/search" method="post">
+                @csrf
+                <select name="search_area" class="form-control">
+                    <option value="">エリアを選択</option>
+                    <!-- エリアのオプションを追加 -->
+                    @foreach($areas as $area)
+                    <option value="{{ $area->id }}">{{ $area->area_name }}</option>
+                    @endforeach
+                </select>
+                <select name="search_genre" class="form-control">
+                    <option value="">ジャンルを選択</option>
+                    <!-- ジャンルのオプションを追加 -->
+                    @foreach($genres as $genre)
+                    <option value="{{ $genre->id }}">{{ $genre->genre_name }}</option>
+                    @endforeach
+                </select>
+                <input type="text" name="search_shop" class="form-control" placeholder="店舗名を入力">
+                <button type="submit" class="btn btn-primary">検索</button>
+            </form>
+        </div>
+        <!-- 検索フォームの終わり -->
         <div class="grid-container">
             @foreach($shops as $shop)
             <div class="shop-card">
@@ -31,10 +53,6 @@
                     @else
                     <a href="/favo_store/{{ $shop->id }}" class="btn btn-favorite">🤍</a>
                     @endif
-
-                    <!-- <input type="hidden" name="id_favorite" value="{{ $shop->id}}" />
-                    <a href="/favo_store/{{ $shop->id }}" class="btn btn-favorite">🤍</a>
-                    <a href="/favo_delete/{{ $shop->id }}" class="btn btn-favorite">💛</a> -->
                     @endif
                 </form>
             </div>

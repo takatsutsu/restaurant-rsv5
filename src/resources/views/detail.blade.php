@@ -14,9 +14,9 @@
 
 <body>
     <div class="container">
-        <h1>{{ $shop->shop_name }}</h1>
-        <a href="{{ url('/') }}">＜ 戻る</a>
         <div class="shop-detail">
+            <h1>{{ $shop->shop_name }}</h1>
+            <a href="{{ url('/') }}">＜ 戻る</a>
             <img src="{{ asset($shop->shop_url) }}" alt="{{ $shop->shop_name }}">
             <p>#{{ $shop->area->area_name }}</p>
             <p>#{{ $shop->genre->genre_name }}</p>

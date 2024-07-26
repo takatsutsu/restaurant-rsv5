@@ -19,18 +19,18 @@ use App\Models\Favorite;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
 Route::get('/user_complete', [AuthController::class, 'user_complete']);
 Route::get('/', [ShopController::class, 'index']);
 Route::get('/detail/{id}', [ShopController::class, 'detail']);
+Route::post('/search', [ShopController::class, 'search']);
 
 
 Route::middleware('auth')->group(function () {
     Route::post('/reserve_store', [ReserveController::class, 'reserve_store']);
+    Route::post('/reserve_delete', [ReserveController::class, 'reserve_delete']);
     Route::get('/favo_store/{id}', [FavoriteController::class, 'favo_store']);
     Route::get('/favo_delete/{id}', [FavoriteController::class, 'favo_delete']);
+    Route::get('/my_favo_delete/{id}', [FavoriteController::class, 'my_favo_delete']);
     Route::get('/mypage', [MypageController::class, 'mypage']);
 
 });

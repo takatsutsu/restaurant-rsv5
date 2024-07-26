@@ -33,4 +33,15 @@ class ReserveController extends Controller
         Reservation::create($reserve);
         return view('thanks');
     }
+
+
+    public function reserve_delete(Request $request)
+    {
+        $reserve_id=$request->reserve_number;
+        Reservation:: where('id', $reserve_id)
+            ->delete();
+
+        return redirect('/mypage')->with('message', '予約を取消しました。');
+    }
+
 }
