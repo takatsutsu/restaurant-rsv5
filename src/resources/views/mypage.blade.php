@@ -25,7 +25,7 @@
                         <p class="card-text">人数: {{ $reservation->reserve_num }}人</p>
                         <input type="hidden" name="reserve_number" value="{{$reservation->id}}" />
 
-                        <input type="submit" value="予約取消" onclick='return confirm("予約を取消しますか？")'>
+                        <input type="submit" class="btn btn-rev_del" value="予約取消" onclick='return confirm("予約を取消しますか？")'>
                     </div>
                 </form>
             </div>
