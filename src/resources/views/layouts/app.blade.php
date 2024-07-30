@@ -25,38 +25,38 @@
                             <li>
                                 <form class="form" action="/" method="get">
                                     @csrf
-                                    <button class="header-nav__button">Home</button>
+                                    <button class="menu-content_button">Home</button>
                                 </form>
                             </li>
                             <li>
                                 <form class="form" action="/logout" method="post">
                                     @csrf
-                                    <button class="header-nav__button">Logout</button>
+                                    <button class="menu-content_button">Logout</button>
                                 </form>
                             </li>
                             <li>
                                 <form class="form" action="/mypage" method="get">
                                     @csrf
-                                    <button class="header-nav__button">Mypage</button>
+                                    <button class="menu-content_button">Mypage</button>
                                 </form>
                             </li>
                             @else
                             <li>
                                 <form class="form" action="/" method="get">
                                     @csrf
-                                    <button class="header-nav__button">Home</button>
+                                    <button class="menu-content_button">Home</button>
                                 </form>
                             </li>
                             <li>
                                 <form class="form" action="/register" method="get">
                                     @csrf
-                                    <button class="header-nav__button">Registration</button>
+                                    <button class="menu-content_button">Registration</button>
                                 </form>
                             </li>
                             <li>
                                 <form class="form" action="/login" method="get">
                                     @csrf
-                                    <button class="header-nav__button">Login</button>
+                                    <button class="menu-content_button">Login</button>
                                 </form>
                             </li>
                             @endif
@@ -70,6 +70,7 @@
                         </a>
                     </div>
                 </div>
+            </div>
         </header>
 
         <main>

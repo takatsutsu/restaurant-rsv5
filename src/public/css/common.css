@@ -21,7 +21,7 @@
 }
 
 .header_comp-logo {
-    color: #cace09;
+    color:blue;
     text-decoration: none;
     font-weight: bold;
     font-size: 30px;
@@ -40,17 +40,10 @@
 }
 
 .header-nav__link {
-    color: #cace09;
+    color:blue;
     text-decoration: none;
 }
 
-.header-nav__button {
-    border: none;
-    background: transparent;
-    color: #cace09;
-    font-size: 16px;
-    cursor: pointer;
-}
 
 .footer {
     background: white;
@@ -65,7 +58,7 @@
 }
 
 .footer__logo {
-    color: #cace09;
+    color:blue;
     display: flex;
     justify-content: center;
     text-decoration: none;

@@ -31,7 +31,7 @@ body {
     font-size: 1rem;
 }
 
-.btn {
+/* .btn {
     display: inline-block;
     padding: 10px 20px;
     margin-top: 10px;
@@ -39,4 +39,37 @@ body {
     color: #fff;
     background-color: #007bff;
     border-radius: 5px;
+} */
+
+/*以下新フォーム*/
+grid-container {
+    display: grid;
+
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+.shop-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+.shop-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    text-decoration: none;
+    color: #fff;
+    background-color: blue;
+    border-radius: 5px;
+}
+
+.heart-icon {
+    width: 35px;
+    height: 35px;
 }

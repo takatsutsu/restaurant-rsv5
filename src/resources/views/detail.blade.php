@@ -70,7 +70,7 @@
                 </div>
                 <input type="hidden" name="shop_id" value="{{ $shop->id }}">
                 <input type="hidden" name="user" value="{{$user ?? ''}}">
-                <button type="submit">予約する</button>
+                <button type="submit" class="res_button">予約する</button>
             </form>
         </div>
     </div>

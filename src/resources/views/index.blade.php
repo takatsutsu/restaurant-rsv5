@@ -45,15 +45,16 @@
                     <img src="{{ asset($shop->shop_url) }}" alt="{{ $shop->shop_name }}">
                     <h2>{{ $shop->shop_name }}</h2>
                     <p>#{{ $shop->area->area_name }} #{{ $shop->genre->genre_name }}</p>
-                    <a href="/detail/{{ $shop->id }}" class="btn btn-primary">詳しく見る</a>
-
-                    @if (Auth::check() && Auth::user()->hasVerifiedEmail())
-                    @if($shop->is_favorite)
-                    <a href="/favo_delete/{{ $shop->id }}" class="btn btn-favorite">💛</a>
-                    @else
-                    <a href="/favo_store/{{ $shop->id }}" class="btn btn-favorite">🤍</a>
-                    @endif
-                    @endif
+                    <div class="grid-button-group">
+                        <a href="/detail/{{ $shop->id }}" class="btn btn-content">詳しく見る</a>
+                        @if (Auth::check() && Auth::user()->hasVerifiedEmail())
+                        @if($shop->is_favorite)
+                        <a href="/favo_delete/{{ $shop->id }}" class="btn-favorite"><img src="{{ asset('images/filled-heart.png') }}" alt="お気に入り解除" class="heart-icon"></a>
+                        @else
+                        <a href="/favo_store/{{ $shop->id }}" class="btn-unfavorite"><img src="{{ asset('images/empty-heart2.png') }}" alt="お気に入りに追加" class="heart-icon"></a>
+                        @endif
+                        @endif
+                    </div>
                 </form>
             </div>
 

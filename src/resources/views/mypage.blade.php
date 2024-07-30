@@ -33,7 +33,27 @@
         </div>
         <div class="col-md-6">
             <h2>お気に入り店舗</h2>
-            @foreach($favorites as $favorite)
+
+            <div class="grid-container">
+                @foreach($favorites as $favorite)
+                <div class="shop-card">
+                    <form class="id_detail" action="/detail" method="get">
+                        <input type="hidden" name="id_detail" value="{{$favorite->shop_id}}" />
+                        <img src="{{ asset($favorite->shop->shop_url) }}" alt="{{ $favorite->shop->name }}">
+                        <h2>{{ $favorite->shop->shop_name }}</h2>
+                        <p>#{{ $favorite->shop->area->area_name  }} #{{ $favorite->shop->genre->genre_name }}</p>
+                        <div class="grid-button-group">
+                            <a href="/detail/{{ $favorite->shop_id }}" class="btn btn-content">詳しく見る</a>
+                            @if (Auth::check() && Auth::user()->hasVerifiedEmail())
+                            <a href="/favo_delete/{{ $favorite->shop_id }}" class="btn-favorite"><img src="{{ asset('images/filled-heart.png') }}" alt="お気に入り解除" class="heart-icon"></a>
+                            @endif
+                        </div>
+                    </form>
+                </div>
+
+                @endforeach
+            </div>
+            <!-- @foreach($favorites as $favorite)
             <div class="card mb-3">
                 <form class="my_favo" action="">
                     <input type="hidden" name="id_detail" value="{{ $favorite->shop_id}}" />
@@ -46,7 +66,7 @@
                     </div>
                 </form>
             </div>
-            @endforeach
+            @endforeach -->
         </div>
     </div>
 </div>
