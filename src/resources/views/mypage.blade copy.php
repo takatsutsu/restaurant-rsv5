@@ -3,13 +3,14 @@
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/bootstrap_custom2.min.css') }}">
 <link rel="stylesheet" href="{{ asset('css/mypage.css')}}">
-@endsection
 
+@endsection
 <html>
+
 @section('content')
 <div class="container">
     <h1>{{ $user->name }}さん</h1>
-    <div class="content"> <!-- 修正ポイント -->
+    <div class="row">
         <div class="my-res_info">
             <h2>予約状況</h2>
             @foreach($reservations as $reservation)
@@ -29,9 +30,9 @@
             </div>
             @endforeach
         </div>
-
-        <div class="my-favorites"> <!-- 修正ポイント -->
+        
             <h2>お気に入り店舗</h2>
+
             <div class="grid-container">
                 @foreach($favorites as $favorite)
                 <div class="shop-card">
@@ -48,11 +49,25 @@
                         </div>
                     </form>
                 </div>
+
                 @endforeach
             </div>
-        </div>
+            <!-- @foreach($favorites as $favorite)
+            <div class="card mb-3">
+                <form class="my_favo" action="">
+                    <input type="hidden" name="id_detail" value="{{ $favorite->shop_id}}" />
+                    <img src="{{ $favorite->shop->shop_url }}" class="card-img-top" alt="{{ $favorite->shop->name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $favorite->shop->shop_name }}</h5>
+                        <p class="card-text">#{{ $favorite->shop->area->area_name }} #{{ $favorite->shop->genre->genre_name }}</p>
+                        <a href="/detail/{{$favorite->shop_id}}" class="btn btn-primary">詳しくみる</a>
+                        <a href="/my_favo_delete/{{ $favorite->shop_id }}" class="btn btn-favorite">💛</a>
+                    </div>
+                </form>
+            </div>
+            @endforeach -->
+        
     </div>
 </div>
-
-</html>
+<html>
 @endsection
