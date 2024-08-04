@@ -9,14 +9,14 @@ use Illuminate\Database\Eloquent\Model\Reservation;
 use Illuminate\Database\Eloquent\Model\Favorite;
 
 
-class MypageController extends Controller
+class My_pageController extends Controller
 {
-    public function mypage()
+    public function my_page()
     {
         $user = Auth::user();
         $reservations = $user->reservation()->with('shop')->get();
         $favorites = $user->favorite()->with('shop')->get();
 
-        return view('mypage', compact('user', 'reservations', 'favorites'));
+        return view('my_page', compact('user', 'reservations', 'favorites'));
     }
 }

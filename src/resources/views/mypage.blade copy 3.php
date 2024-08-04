@@ -7,22 +7,22 @@
 
 <html>
 @section('content')
-<div class="container">
+<div class="my-container">
     <h1>{{ $user->name }}さん</h1>
-    <div class="content"> <!-- 修正ポイント -->
-        <div class="my-res_info">
+    <div class="my-content"> <!-- 修正ポイント -->
+        <div class="my-reservations">
             <h2>予約状況</h2>
             @foreach($reservations as $reservation)
-            <div class="card mb-3">
-                <form class="my_reserve" action="/reserve_delete" method="post">
+            <div class="my-rese_card">
+                <form class="my-rese_form" action="/reserve_delete" method="post">
                     @csrf
-                    <div class="card-body">
-                        <input type="submit" class="card-btn-del" value="❌" onclick='return confirm("予約を取消しますか？")'>
-                        <h5 class="card-title">{{ $reservation->shop->shop_name }}</h5>
-                        <p class="card-text">予約番号: {{ $reservation->id }}</p>
-                        <p class="card-text">予約日: {{ $reservation->reserve_date }}</p>
-                        <p class="card-text">予約時間: {{ $reservation->reserve_time }}</p>
-                        <p class="card-text">人数: {{ $reservation->reserve_num }}人</p>
+                    <div class="my-rese_card-body">
+                        <input type="submit" class="my-rese_btn-del" value="❌" onclick='return confirm("予約を取消しますか？")'>
+                        <h5 class="my-rese_card-title">{{ $reservation->shop->shop_name }}</h5>
+                        <p class="my-rese_card-text">予約番号: {{ $reservation->id }}</p>
+                        <p class="my-rese_card-text">予約日: {{ $reservation->reserve_date }}</p>
+                        <p class="my-rese_card-text">予約時間: {{ $reservation->reserve_time }}</p>
+                        <p class="my-rese_card-text">人数: {{ $reservation->reserve_num }}人</p>
                         <input type="hidden" name="reserve_number" value="{{$reservation->id}}" />
                     </div>
                 </form>

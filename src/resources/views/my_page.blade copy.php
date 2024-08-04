@@ -11,7 +11,7 @@
 <div class="container">
     <h1>{{ $user->name }}さん</h1>
     <div class="row">
-        <div class="my-res_info">
+        <div class="my_res-info">
             <h2>予約状況</h2>
             @foreach($reservations as $reservation)
             <div class="card mb-3">
@@ -33,7 +33,7 @@
         
             <h2>お気に入り店舗</h2>
 
-            <div class="grid-container">
+            <div class="my_grid-container">
                 @foreach($favorites as $favorite)
                 <div class="shop-card">
                     <form class="id_detail" action="/detail" method="get">

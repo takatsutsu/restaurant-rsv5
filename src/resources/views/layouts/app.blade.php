@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Attendance</title>
+    <title>Rese</title>
     <link rel="stylesheet" href="{{ asset('css/common.css') }}">
     <link rel="stylesheet" href="{{ asset('css/ham_menu.css') }}">
     @yield('css')
@@ -35,7 +35,7 @@
                                 </form>
                             </li>
                             <li>
-                                <form class="form" action="/mypage" method="get">
+                                <form class="form" action="/my_page" method="get">
                                     @csrf
                                     <button class="menu-content_button">Mypage</button>
                                 </form>

@@ -1,21 +1,21 @@
-.grid-container {
+.shop_grid-container {
     display: grid;
 
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
 }
-.shop-card {
+.shop_card {
     border: 1px solid #ddd;
     padding: 20px;
     border-radius: 10px;
     text-align: center;
 }
-.shop-card img {
+.shop_card img {
     max-width: 100%;
     height: auto;
     border-radius: 10px;
 }
-.btn {
+.shop_btn {
     display: inline-block;
     padding: 10px 20px;
     margin-top: 10px;
@@ -24,25 +24,25 @@
     background-color: blue;
     border-radius: 5px;
 }
-.search-form {
+.shop_search-form {
     margin-bottom: 20px;
     display: flex;
     justify-content: flex-end;
     gap: 10px;
 }
-.search-form .form-control {
+.shop_search-form .shop_search-field {
     width: auto;
     display: inline-block;
 }
-.search-form .btn {
+.shop_search-form .btn {
     margin-left: 10px;
 }
 
-.btn-content {
+.shop_btn-content {
     font-size: 11px;
 }
 
-.heart-icon {
+.shop_heart-icon {
     width: 35px;
     height: 35px;
 }

@@ -2,17 +2,17 @@
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/bootstrap_custom2.min.css') }}">
-<link rel="stylesheet" href="{{ asset('css/complete.css') }}">
+<link rel="stylesheet" href="{{ asset('css/thanks.css') }}">
 @endsection
 @section('content')
-    <div class="main_head">
-    <h2 class="small-tittle">予約完了画面</h2>
+    <div class="thank_head">
+    <h2 class="thank_tittle">予約完了画面</h2>
     <form action="/" method="get">
-        <div class=" form_main">
+        <div class=" thank_main">
             予約完了しました。ありがとうございます。
 
         </div>
-        <div class="form_btn">
+        <div class="thank_home-btn">
             <input type="submit" value="HOME" />
         </div>
 

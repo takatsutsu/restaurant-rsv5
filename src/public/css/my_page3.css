@@ -1,4 +1,4 @@
-body {
+.main {
     background-color: #f8f9fa;
 }
 
@@ -6,44 +6,55 @@ body {
     margin-top: 30px;
 }
 
-.content { /* 修正ポイント */
+
+/* .my-content { 
     display: flex;
     justify-content: space-between;
-}
+} */
 
-.my-res_info {
+
+/* .my-reservatiion {
     width: 30%;
-}
+} */
 
-.my-favorites { /* 修正ポイント */
+/* .my-favorites
     width: 65%;
-}
+} */
 
-.card {
+
+
+.my_rese-card {
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.card-img-top {
+/* .card-img-top {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+} */
+
+.my_rese-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
 }
 
-.card-body {
+
+.my_rese-card-body {
     background-color: #ffffff;
     padding: 20px;
 }
 
-.card-title {
+.my_rese-card-title {
     font-size: 1.25rem;
     font-weight: bold;
 }
 
-.card-text {
+.my_rese-card-text {
     font-size: 1rem;
 }
 
-.card-btn-del {
+.my_rese-card-btn {
     float: right;
     background-color: #ff6b6b;
     color: white;
@@ -54,26 +65,26 @@ body {
     margin-left: 10px;
 }
 
-.grid-container {
+.my_favo-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
 }
 
-.shop-card {
+.my_favo-card {
     border: 1px solid #ddd;
     padding: 20px;
     border-radius: 10px;
     text-align: center;
 }
 
-.shop-card img {
+.my_favo-card img {
     max-width: 100%;
     height: auto;
     border-radius: 10px;
 }
 
-.btn {
+.my_btn {
     display: inline-block;
     padding: 10px 20px;
     margin-top: 10px;
@@ -83,7 +94,7 @@ body {
     border-radius: 5px;
 }
 
-.heart-icon {
+.my_favo-heart-icon {
     width: 35px;
     height: 35px;
 }

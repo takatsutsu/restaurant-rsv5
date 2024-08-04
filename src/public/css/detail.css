@@ -10,22 +10,22 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.shop-detail, .reservation-form {
+.detail_shop-info, .detail_reservation {
     width: 48%;
 }
 
-.shop-detail img {
+.detail_shop-info img {
     width: 100%;
     border-radius: 10px;
     margin-bottom: 20px;
 }
 
-.shop-detail p {
+.detail_shop-info p {
     font-size: 16px;
     color: #333;
 }
 
-.reservation-form {
+.detail_reservation {
     background-color:blue;
     color: white;
     padding: 20px;
@@ -33,23 +33,23 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.reservation-form h2 {
+.detail_reservation h2 {
     font-size: 24px;
     margin-bottom: 20px;
 }
 
-.form-group {
+.detail_rese-input {
     margin-bottom: 20px;
 }
 
-.form-group label {
+.detail_rese-input label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
 }
 
-.form-group input,
-.form-group select {
+.detail_rese-input input,
+.detail_rese-input select {
     width: 100%;
     padding: 10px;
     border-radius: 5px;
@@ -62,7 +62,7 @@
     font-size: 14px;
 }
 
-.res_button{
+.detail_rese_button{
     width: 100%;
     padding: 10px;
     background-color:rgb(66, 34, 190);
@@ -73,6 +73,6 @@
     cursor: pointer;
 }
 
-.res_button:hover {
+.detail_rese_button:hover {
     background-color: #003d7a;
 }
