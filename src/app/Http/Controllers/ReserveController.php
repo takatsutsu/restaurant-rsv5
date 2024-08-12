@@ -11,7 +11,7 @@ use App\Models\Reservation;
 
 class ReserveController extends Controller
 {
-    public function reserve_store(Request $request)
+    public function reserve_store(ReserveRequest $request)
     {
 
         $date = $request->reserve_date;
@@ -21,6 +21,8 @@ class ReserveController extends Controller
         $dateTime = Carbon::parse($dateTimeString);
 
         $user = Auth::User();
+
+    
         $reserve = ([
             'user_id' => $user->id,
             'shop_id' => $request->shop_id,
@@ -41,7 +43,8 @@ class ReserveController extends Controller
         Reservation:: where('id', $reserve_id)
             ->delete();
 
-        return redirect('/mypage')->with('message', '予約を取消しました。');
+        return redirect('/my_page')->with('message', '予約を取消しました。');
     }
+
 
 }

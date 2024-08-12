@@ -42,6 +42,6 @@ class FavoriteController extends Controller
             ->where('shop_id', $id)
             ->delete();
 
-        return redirect('/mypage');
+        return redirect('/my_page');
     }
 }

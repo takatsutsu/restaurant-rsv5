@@ -7,6 +7,12 @@ use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\ReserveController;
 use App\Http\Controllers\My_pageController;
 use App\Models\Favorite;
+use App\Http\Controllers\LoginController;
+use App\Http\Requests\RegisterRequest;
+use App\Http\Controllers\RegisterController;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Support\Facades\Auth;
+use PharIo\Manifest\Author;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +29,8 @@ Route::get('/user_complete', [AuthController::class, 'user_complete']);
 Route::get('/', [ShopController::class, 'index']);
 Route::get('/detail/{id}', [ShopController::class, 'detail']);
 Route::post('/search', [ShopController::class, 'search']);
+Route::post('/login', [LoginController::class, 'login'])->name('login');
+
 
 
 Route::middleware('auth')->group(function () {

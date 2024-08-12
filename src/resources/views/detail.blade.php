@@ -30,9 +30,16 @@
                     <label for="date">予約日</label>
                     <input type="date" name="reserve_date" id="date" value="{{ old('reserve_date') }}">
                 </div>
-                <div class="form__error">
+                <div class="detail_rese-error">
                     <font color="red">
-                        @error('tell')
+                        @error('reserve_date')
+                        {{ $message }}
+                        @enderror
+                    </font>
+                </div>
+                <div class="detail_rese-error">
+                    <font color="red">
+                        @error('reserve_before-date')
                         {{ $message }}
                         @enderror
                     </font>
@@ -41,14 +48,22 @@
                     <label for="time">予約時間</label>
                     <input type="time" name="reserve_time" id="time" value="{{ old('reserve_time') }}">
                 </div>
-                <div class="form__error">
+                <div class="detail_rese-error">
                     <font color="red">
-                        @error('tell')
+                        @error('reserve_time')
                         {{ $message }}
                         @enderror
                     </font>
                 </div>
-                <div class="detail_rese-input">
+                <div class="detail_rese-error">
+                    <font color="red">
+                        @error('reserve_before-time')
+                        {{ $message }}
+                        @enderror
+                    </font>
+                </div>
+
+                <div class="detail_rese-error">
                     <label for="number">予約人数</label>
                     <select name="reserve_num" id="reserve_num" value="{{ old('reserve_num') }}">
                         <option value="1">1人</option>
@@ -61,8 +76,8 @@
                         <option value="8">8人</option>
                     </select>
                 </div>
-                <div class="form__error">
-                    <font color="red">
+                <div class="detail_rese-error">
+                    <font color="reserve_num">
                         @error('tell')
                         {{ $message }}
                         @enderror
