@@ -42,7 +42,7 @@ class ReserveRequest extends FormRequest
             'reserve_date.date' => '予約日を正しい形式で入力してください。',
             'reserve_date.after_or_equal' => '過去の日付は選択できません。',
             'reserve_time.required' => '予約時間を選択してください。',
-            'reserve_time.date_format' => '予約時間を正しい形式で入力してください。', 
+            'reserve_time.date_format' => '予約時間を正しい形式で入力してください。',
         ];
     }
 

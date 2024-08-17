@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+
 class AuthController extends Controller
 {
-    public function user_complete()
+    public function index()
     {
-        return view('auth.user_complete');
+        return view('index');
     }
 }

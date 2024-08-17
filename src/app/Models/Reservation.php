@@ -18,6 +18,10 @@ class Reservation extends Model
         'reserve_num'
     ];
 
+    protected $casts = [
+        'reserve_time' => 'datetime:H:i',  // 時間をCarbonインスタンスとして扱う
+    ];
+
     public function user()
     {
         return $this->belongsTo("App\Models\User");

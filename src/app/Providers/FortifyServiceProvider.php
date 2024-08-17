@@ -12,6 +12,11 @@ use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Laravel\Fortify\Fortify;
+use Illuminate\Support\Facades\Redirect;
+use Laravel\Fortify\Events\Registered;
+use Illuminate\Support\Facades\Event;
+
+
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -28,7 +33,7 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-    Fortify::createUsersUsing(CreateNewUser::class);
+        Fortify::createUsersUsing(CreateNewUser::class);
 
         Fortify::registerView(function () {
             return view('auth.register');
@@ -43,5 +48,6 @@ class FortifyServiceProvider extends ServiceProvider
 
             return Limit::perMinute(10)->by($email . $request->ip());
         });
+
     }
 }

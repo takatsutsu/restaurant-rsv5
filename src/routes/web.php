@@ -13,6 +13,8 @@ use App\Http\Controllers\RegisterController;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Auth;
 use PharIo\Manifest\Author;
+use Illuminate\Http\Request;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,21 +26,48 @@ use PharIo\Manifest\Author;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// routes/web.php
+// Route::get('/user_complete', [AuthController::class, 'user_complete']);
 
-Route::get('/user_complete', [AuthController::class, 'user_complete']);
 Route::get('/', [ShopController::class, 'index']);
 Route::get('/detail/{id}', [ShopController::class, 'detail']);
 Route::post('/search', [ShopController::class, 'search']);
 Route::post('/login', [LoginController::class, 'login'])->name('login');
-
-
+Route::post('/register', [RegisterController::class, 'register']);
 
 Route::middleware('auth')->group(function () {
-    Route::post('/reserve_store', [ReserveController::class, 'reserve_store']);
-    Route::post('/reserve_delete', [ReserveController::class, 'reserve_delete']);
-    Route::get('/favo_store/{id}', [FavoriteController::class, 'favo_store']);
-    Route::get('/favo_delete/{id}', [FavoriteController::class, 'favo_delete']);
-    Route::get('/my_favo_delete/{id}', [FavoriteController::class, 'my_favo_delete']);
-    Route::get('/my_page', [My_pageController::class, 'my_page']);
+
+    // メール認証済みのユーザー向けルート
+    Route::middleware('verified')->group(function () {
+        Route::post('/reserve_store', [ReserveController::class, 'reserve_store']);
+        Route::post('/reserve_delete', [ReserveController::class, 'reserve_delete']);
+        Route::get('/favo_store/{id}', [FavoriteController::class, 'favo_store']);
+        Route::get('/favo_delete/{id}', [FavoriteController::class, 'favo_delete']);
+        Route::get('/my_favo_delete/{id}', [FavoriteController::class, 'my_favo_delete']);
+        Route::get('/my_page', [My_pageController::class, 'my_page']);
+        Route::get('/reserve_edit/{id}', [ReserveController::class, 'reserve_edit']);
+        Route::post('/reserve_update', [ReserveController::class, 'reserve_update']);
+    });
+// メール認証が必要なユーザー向けルート
+
+
+    Route::get('/email/verify', function () {
+        return view('auth.user_thanks');
+    })->name('verification.notice');
+
+    Route::get('/user_thanks', function () {
+        return view('auth.user_thanks');
+    })->name('registration.success');
+
+
+    Route::post('/email/verification-notification', function (Request $request) {
+        $request->user()->sendEmailVerificationNotification();
+
+        return back()->with('message', 'Verification link sent!');
+    })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
 
 });
+
+
+

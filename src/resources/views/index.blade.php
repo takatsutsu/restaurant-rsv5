@@ -42,7 +42,7 @@
             <div class="shop_card">
                 <form class="shop_detail-form" action="/detail" method="get">
                     <input type="hidden" name="id_detail" value="{{ $shop->id}}" />
-                    <img src="{{ asset($shop->shop_url) }}" alt="{{ $shop->shop_name }}">
+                    <img src="{{ asset('storage/' . $shop->shop_picture) }}" alt="Shop Picture">
                     <h2>{{ $shop->shop_name }}</h2>
                     <p>#{{ $shop->area->area_name }} #{{ $shop->genre->genre_name }}</p>
                     <div class="shop_button-group">
