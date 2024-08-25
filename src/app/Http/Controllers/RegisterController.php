@@ -23,7 +23,6 @@ class RegisterController extends Controller
 
         event(new Registered($user));
 
-        return view('auth.user_thanks');
-
+        return redirect()->route('registration.success');
     }
 }

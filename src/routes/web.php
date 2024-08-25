@@ -32,7 +32,7 @@ use Illuminate\Http\Request;
 Route::get('/', [ShopController::class, 'index']);
 Route::get('/detail/{id}', [ShopController::class, 'detail']);
 Route::post('/search', [ShopController::class, 'search']);
-Route::post('/login', [LoginController::class, 'login'])->name('login');
+Route::post('/login', [LoginController::class, 'login']);
 Route::post('/register', [RegisterController::class, 'register']);
 
 Route::middleware('auth')->group(function () {
@@ -48,16 +48,16 @@ Route::middleware('auth')->group(function () {
         Route::get('/reserve_edit/{id}', [ReserveController::class, 'reserve_edit']);
         Route::post('/reserve_update', [ReserveController::class, 'reserve_update']);
     });
-// メール認証が必要なユーザー向けルート
-
-
+    // メール認証が必要なユーザー向けルート
     Route::get('/email/verify', function () {
         return view('auth.user_thanks');
     })->name('verification.notice');
 
-    Route::get('/user_thanks', function () {
-        return view('auth.user_thanks');
-    })->name('registration.success');
+    Route::get('/user_thanks',
+        function () {
+            return view('auth.user_thanks');
+        }
+    )->name('registration.success');
 
 
     Route::post('/email/verification-notification', function (Request $request) {
@@ -65,8 +65,6 @@ Route::middleware('auth')->group(function () {
 
         return back()->with('message', 'Verification link sent!');
     })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
-
-
 });
 
 

@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="shop_container">
         <!-- 検索フォームの追加 -->
         <div class="shop_search-form">
             <form action="/search" method="post">
@@ -46,7 +46,7 @@
                     <h2>{{ $shop->shop_name }}</h2>
                     <p>#{{ $shop->area->area_name }} #{{ $shop->genre->genre_name }}</p>
                     <div class="shop_button-group">
-                        <a href="/detail/{{ $shop->id }}" class="shop_btn btn-content">詳しく見る</a>
+                        <a href="/detail/{{ $shop->id }}" class="shop_btn shop_btn-content">詳しく見る</a>
                         @if (Auth::check() && Auth::user()->hasVerifiedEmail())
                         @if($shop->is_favorite)
                         <a href="/favo_delete/{{ $shop->id }}" class="shop_btn-favorite"><img src="{{ asset('images/filled-heart.png') }}" alt="お気に入り解除" class="shop_heart-icon"></a>

@@ -1,25 +1,30 @@
 
-.detail_container {
+.container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
     margin: 20px auto;
     max-width: 1200px;
-}
-
-.detail_container {
     padding: 20px;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-@media screen and (min-width: 769px) {
-.detail_reservation {
+.detail_shop-info, .detail_reservation {
     width: 48%;
 }
+
+.detail_shop-info img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
 
+.detail_shop-info p {
+    font-size: 16px;
+    color: #333;
+}
 
 .detail_reservation {
     background-color:blue;
@@ -58,7 +63,7 @@
     font-size: 14px;
 }
 
-.detail_rese-button{
+.detail_rese_button{
     width: 100%;
     padding: 10px;
     background-color:rgb(66, 34, 190);
@@ -69,13 +74,6 @@
     cursor: pointer;
 }
 
-.detail_rese-button:hover {
+.detail_rese_button:hover {
     background-color: #003d7a;
-}
-
-
-@media screen and (max-width: 768px) {
-.detail_reservation {
-    width: 100%;
-}
 }

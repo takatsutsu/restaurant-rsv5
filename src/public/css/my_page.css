@@ -1,11 +1,13 @@
-.main {
+.my_main {
     background-color: #f8f9fa;
 }
 
-.container {
+.my_container {
     margin-top: 30px;
+    margin: 20px auto;
+    width: 90%;
 }
-
+@media screen and (min-width: 769px) {
 .my_content { /* 修正ポイント */
     display: flex;
     justify-content: space-between;
@@ -18,8 +20,10 @@
 .my_favorites { /* 修正ポイント */
     width: 65%;
 }
+}
 
-.my_rese-card {
+
+.my_rese_card {
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -29,21 +33,21 @@
     border-top-right-radius: 10px;
 } */
 
-.my_rese-card-body {
+.my_rese_card-body {
     background-color: #ffffff;
     padding: 20px;
 }
 
-.my_rese-card-title {
+.my_rese_card-title {
     font-size: 1.25rem;
     font-weight: bold;
 }
 
-.my_rese-card-text {
+.my_rese_card-text {
     font-size: 1rem;
 }
 
-.my_rese-card-btn {
+.my_rese_card-btn {
     float: right;
     background-color: #ff6b6b;
     color: white;
@@ -54,26 +58,26 @@
     margin-left: 10px;
 }
 
-.my_favo-container {
+.my_favo_container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
     gap: 20px;
 }
 
-.my_favo-card {
+.my_favo_card {
     border: 1px solid #ddd;
     padding: 20px;
     border-radius: 10px;
     text-align: center;
 }
 
-.my_favo-card img {
+.my_favo_card img {
     max-width: 100%;
     height: auto;
     border-radius: 10px;
 }
 
-.my_btn {
+.my_favo_btn-content {
     display: inline-block;
     padding: 10px 20px;
     margin-top: 10px;
@@ -83,7 +87,17 @@
     border-radius: 5px;
 }
 
-.my_favo-heart-icon {
+.my_favo_heart-icon {
     width: 35px;
     height: 35px;
 }
+
+@media screen and (max-width: 768px) {
+    .my_favo_container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    gap: 20px;
+}
+
+}
+

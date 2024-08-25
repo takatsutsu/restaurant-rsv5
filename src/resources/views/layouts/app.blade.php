@@ -18,6 +18,11 @@
                 <div class="hamburger-menu">
                     <input type="checkbox" id="menu-btn-check">
                     <label for="menu-btn-check" class="menu-btn"><span></span></label>
+                    <div class="header_box">
+                        <a class="header_comp-logo" href="">
+                            Rese
+                        </a>
+                    </div>
                     <!--ここからメニュー-->
                     <div class="menu-content">
                         <ul>
@@ -63,12 +68,6 @@
                         </ul>
                     </div>
                     <!--ここまでメニュー-->
-
-                    <div class="header_box">
-                        <a class="header_comp-logo" href="">
-                            Rese
-                        </a>
-                    </div>
                 </div>
             </div>
         </header>

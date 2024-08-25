@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="detail_container">
         <div class="detail_shop-info">
             <h1>{{ $shop->shop_name }}</h1>
             <a href="{{ url('/') }}">＜ 戻る</a>
@@ -63,7 +63,7 @@
                     </font>
                 </div>
 
-                <div class="detail_rese-error">
+                <div class="detail_rese-input">
                     <label for="number">予約人数</label>
                     <select name="reserve_num" id="reserve_num" value="{{ old('reserve_num') }}">
                         <option value="1">1人</option>
@@ -76,6 +76,7 @@
                         <option value="8">8人</option>
                     </select>
                 </div>
+                <P></P>
                 <div class="detail_rese-error">
                     <font color="reserve_num">
                         @error('tell')
@@ -85,7 +86,7 @@
                 </div>
                 <input type="hidden" name="shop_id" value="{{ $shop->id }}">
                 <input type="hidden" name="user" value="{{$user ?? ''}}">
-                <button type="submit" class="detail_rese_button">予約する</button>
+                <button type="submit" class="detail_rese-button">予約する</button>
             </form>
         </div>
     </div>

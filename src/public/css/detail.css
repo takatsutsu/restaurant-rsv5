@@ -1,17 +1,26 @@
-.container {
+@media screen and (min-width: 769px) {
+.detail_container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 20px auto;
     max-width: 1200px;
+}
+}
+
+.detail_container {
     padding: 20px;
     background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px #0000001a;
+    margin: 20px auto;
+    width: 90%;
 }
 
+
+@media screen and (min-width: 769px) {
 .detail_shop-info, .detail_reservation {
     width: 48%;
+}
 }
 
 .detail_shop-info img {
@@ -62,7 +71,7 @@
     font-size: 14px;
 }
 
-.detail_rese_button{
+.detail_rese-button{
     width: 100%;
     padding: 10px;
     background-color:rgb(66, 34, 190);
@@ -73,6 +82,6 @@
     cursor: pointer;
 }
 
-.detail_rese_button:hover {
+.detail_rese-button:hover {
     background-color: #003d7a;
 }

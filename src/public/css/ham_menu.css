@@ -1,7 +1,7 @@
 .hamburger-menu {
     display: flex;
     justify-content: flex-start; /* 左端に配置 */
-    padding-left: 10px; /* 左端からの余白を調整 */
+    padding-left: 0px; /* 左端からの余白を調整 */
     margin-right: 20px; /* ロゴとのスペースを確保 */ ////
 }
 
