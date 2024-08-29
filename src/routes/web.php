@@ -14,6 +14,7 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Auth;
 use PharIo\Manifest\Author;
 use Illuminate\Http\Request;
+use App\Http\Controllers\EmailController;
 
 
 /*
@@ -34,6 +35,8 @@ Route::get('/detail/{id}', [ShopController::class, 'detail']);
 Route::post('/search', [ShopController::class, 'search']);
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/register', [RegisterController::class, 'register']);
+Route::get('/email_form', [EmailController::class, 'email_form']);
+Route::post('/send_email', [EmailController::class, 'send_email']);
 
 Route::middleware('auth')->group(function () {
 
