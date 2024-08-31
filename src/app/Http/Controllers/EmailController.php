@@ -24,22 +24,35 @@ class EmailController extends Controller
     // メール送信処理
     public function send_email(Request $request)
     {
-        $shop_id = $request->input('shop_id'); // 選択された店舗IDを取得
+        // フォームから送信されたデータを取得
+        $shopId = $request->input('shop_id');
         $subject = $request->input('subject');
-        $message = $request->input('message');
+        $messageContent = $request->input('message');
 
-        // 選択された店舗のお気に入り登録しているユーザを取得
-        $users = User::whereIn('id', function ($query) use ($shop_id) {
-            $query->select('user_id')
-                ->from('favorites')
-                ->where('shop_id', $shop_id); // 店舗IDで絞り込む
-        })->get();
+        // 店舗名を取得
+        $shop = Shop::find($shopId);
+        $shopName = $shop->shop_name;
 
-        // 各ユーザにメールを送信
-        foreach ($users as $user) {
-            Mail::to($user->email)->send(new FavoriteEmail($subject, $message));
+        // 指定された店舗のお気に入りに登録されているユーザーを取得
+        $favoriteUsers = Favorite::where('shop_id', $shopId)
+            ->with('user')  // ユーザー情報を取得するためにリレーションをロード
+            ->get()
+            ->pluck('user'); // ユーザー情報のみを抽出
+
+        // メール送信
+        foreach ($favoriteUsers as $user) {
+            Mail::send([], [], function ($message) use ($user, $subject, $shopName, $messageContent) {
+                $message->to($user->email)
+                    ->subject($subject)
+                    ->setBody("
+                        店舗名: $shopName\n
+                        メッセージ:\n
+                        $messageContent
+                    ", 'text/plain');
+            });
         }
 
-        return redirect()->back()->with('status', 'メールを送信しました');
+        return redirect('/email_form')->with('message', 'メールを送信しました。');
+
     }
 }
