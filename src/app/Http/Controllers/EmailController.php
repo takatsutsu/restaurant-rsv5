@@ -8,7 +8,7 @@ use App\Models\User;
 use App\Models\Favorite;
 use App\Models\Shop;  // 追加
 use Illuminate\Support\Facades\Mail;
-use App\Mail\FavoriteEmail;
+use App\Mail\NoticeEmail;
 
 class EmailController extends Controller
 {
@@ -40,16 +40,9 @@ class EmailController extends Controller
             ->pluck('user'); // ユーザー情報のみを抽出
 
         // メール送信
+        // メール送信
         foreach ($favoriteUsers as $user) {
-            Mail::send([], [], function ($message) use ($user, $subject, $shopName, $messageContent) {
-                $message->to($user->email)
-                    ->subject($subject)
-                    ->setBody("
-                        店舗名: $shopName\n
-                        メッセージ:\n
-                        $messageContent
-                    ", 'text/plain');
-            });
+            Mail::to($user->email)->send(new NoticeEmail($shopName, $subject, $messageContent));
         }
 
         return redirect('/email_form')->with('message', 'メールを送信しました。');
