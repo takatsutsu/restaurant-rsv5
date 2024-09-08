@@ -12,8 +12,6 @@ class Shop extends Model
     protected $fillable = [
         'shop_name',
         'shop_explanation',
-        'shop_url',
-        'shop_picture',
         'genre_id',
         'area_id',
     ];

@@ -17,14 +17,17 @@ class ShopController extends Controller
 {
     public function index()
     {
-        $userId = Auth::id();
+        $user_id = Auth::id();
         $genres = Genre::all();
         $areas = Area::all();
 
+        $user = Auth::user();
+
+
         // クエリビルダを使用してクエリを作成
-        $query = Shop::leftJoin('favorites', function ($join) use ($userId) {
+        $query = Shop::leftJoin('favorites', function ($join) use ($user_id) {
             $join->on('shops.id', '=', 'favorites.shop_id')
-            ->where('favorites.user_id', '=', $userId);
+            ->where('favorites.user_id', '=', $user_id);
         })
             ->select('shops.*', \DB::raw('CASE WHEN favorites.user_id IS NOT NULL THEN TRUE ELSE FALSE END AS is_favorite'))
             ->get();
@@ -34,7 +37,7 @@ class ShopController extends Controller
             $shop->is_favorite = $query->firstWhere('id', $shop->id)->is_favorite;
         });
 
-        return view('index', compact('shops','genres', 'areas'));
+        return view('index', compact('shops','genres', 'areas', 'user'));
     }
 
     public function search(Request $request)

@@ -9,8 +9,8 @@
 @section('content')
 <div class="my_main">
     <div class="my_container">
-        <h1>{{ $user->name }}さん</h1>
-        <div class="my_content"> <!-- 修正ポイント -->
+        <h1>{{ $user->name }}様</h1>
+        <div class="my_content">
             <div class="my_reservatiion">
                 <h2>予約状況</h2>
                 <div class="my_rese_container">
@@ -34,7 +34,7 @@
                 </div>
             </div>
 
-            <div class="my_favorites"> <!-- 修正ポイント -->
+            <div class="my_favorites">
                 <h2>お気に入り店舗</h2>
                 <div class="my_favo_container">
                     @foreach($favorites as $favorite)
@@ -42,7 +42,7 @@
                         <form class="my_favo_form" action="/detail" method="get">
                             @csrf
                             <input type="hidden" name="id_detail" value="{{$favorite->shop_id}}" />
-                            <img src="{{ asset($favorite->shop->shop_url) }}" alt="{{ $favorite->shop->name }}">
+                            <img src="{{asset('storage/' . $favorite->shop->genre->genre_picture) }}" alt="{{ $favorite->shop->name }}">
                             <h2>{{ $favorite->shop->shop_name }}</h2>
                             <p>#{{ $favorite->shop->area->area_name  }} #{{ $favorite->shop->genre->genre_name }}</p>
                             <div class="my_favo_btn-group">

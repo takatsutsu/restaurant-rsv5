@@ -15,7 +15,7 @@
     <div class="detail_container">
         <div class="detail_reservation">
             <h2>予約変更</h2>
-            <form action="/detail_update" method="POST">
+            <form action="/reserve_update" method="POST">
                 @csrf
                 <div class="detail_rese-input">
                     <label for="date">予約日</label>
@@ -37,7 +37,7 @@
                 </div>
                 <div class="detail_rese-input">
                     <label for="time">予約時間</label>
-                    <input type="time" name="reserve_time" value="{{ old('reserve_time', $reservation->reserve_time->format('H:i')) }}">
+                    <input type="time" name="reserve_time" step="900" value="{{ old('reserve_time', $reservation->reserve_time->format('H:i')) }}">
                 </div>
                 <div class="detail_rese-error">
                     <font color="red">

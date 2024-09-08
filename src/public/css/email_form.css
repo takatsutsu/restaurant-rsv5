@@ -12,7 +12,7 @@
     text-align: center;
 }
 
-form {
+.email_contents {
     max-width: 600px; /* フォームの最大幅を設定 */
     margin: 0 auto; /* フォームを中央に配置 */
     padding: 20px; /* フォーム内の余白 */
@@ -23,15 +23,15 @@ form {
 }
 
 .email_tittle {
+    width: 100%;
     display: block; /* ラベルをブロック要素にして改行 */
     margin-bottom: 5px; /* ラベルと入力フィールドの間に余白 */
     font-weight: bold; /* ラベルの文字を太字に */
     color: #555; /* ラベルの文字色 */
 }
 
-input[type="text"],
-select,
-textarea {
+.email_subject,
+.email_message {
     width: 100%; /* 入力フィールドとテキストエリアを幅いっぱいに */
     padding: 10px; /* 内側の余白 */
     margin-bottom: 15px; /* フィールド間の余白 */
@@ -43,12 +43,12 @@ textarea {
     background-color: #fff; /* 入力フィールドの背景色 */
 }
 
-textarea {
+.email_message  {
     height: 150px; /* テキストエリアの高さ */
     resize: vertical; /* 垂直方向のみサイズ変更可能 */
 }
 
-button[type="submit"] {
+.email_button {
     width: 100%; /* ボタンの幅をフォームいっぱいに */
     padding: 12px; /* ボタンの内側の余白 */
     font-size: 16px; /* ボタンの文字サイズ */
@@ -60,6 +60,6 @@ button[type="submit"] {
     transition: background-color 0.3s ease; /* 背景色のトランジション */
 }
 
-button[type="submit"]:hover {
+.email_button {
     background-color: #0056b3; /* ホバー時のボタン背景色 */
 }

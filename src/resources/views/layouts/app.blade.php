@@ -27,6 +27,7 @@
                     <div class="menu-content">
                         <ul>
                             @if (Auth::check() && Auth::user()->hasVerifiedEmail())
+                            @if (Auth::user()->role === 'user')
                             <li>
                                 <form class="form" action="/" method="get">
                                     @csrf
@@ -45,6 +46,54 @@
                                     <button class="menu-content_button">Mypage</button>
                                 </form>
                             </li>
+                            @endif
+                            @if (Auth::user()->role === 'admin')
+                            <li>
+                                <form class="form" action="/" method="get">
+                                    @csrf
+                                    <button class="menu-content_button">Home</button>
+                                </form>
+                            </li>
+                            <li>
+                                <form class="form" action="/logout" method="post">
+                                    @csrf
+                                    <button class="menu-content_button">Logout</button>
+                                </form>
+                            </li>
+                            <li>
+                                <form class="form" action="/My_Page" method="get">
+                                    @csrf
+                                    <button class="menu-content_button">ShopManager-Registration</button>
+                                </form>
+                            </li>
+                            @endif
+                            @if (Auth::user()->role === 'shop-admin')
+                            <li>
+                                <form class="form" action="/" method="get">
+                                    @csrf
+                                    <button class="menu-content_button">Home</button>
+                                </form>
+                            </li>
+                            <li>
+                                <form class="form" action="/logout" method="post">
+                                    @csrf
+                                    <button class="menu-content_button">Logout</button>
+                                </form>
+                            </li>
+                            <li>
+                                <form class="form" action="/my_page" method="get">
+                                    @csrf
+                                    <button class="menu-content_button">ShopContents-Edit</button>
+                                </form>
+                            </li>
+                            <li>
+                                <form class="form" action="/email_form" method="get">
+                                    @csrf
+                                    <button class="menu-content_button">Notice-Email</button>
+                                </form>
+                            </li>
+                            @endif
+
                             @else
                             <li>
                                 <form class="form" action="/" method="get">

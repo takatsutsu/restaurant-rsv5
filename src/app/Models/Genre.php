@@ -11,6 +11,8 @@ class Genre extends Model
 
     protected $fillable = [
         'genre_name',
+        'genre_url',
+        'genre_picture',
     ];
 
     public function shop()

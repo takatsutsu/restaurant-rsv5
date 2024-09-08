@@ -7,25 +7,19 @@
 @section('content')
 <div class="email_container">
     <h2 class="email_head-tittle">メール送信画面</h2>
+    <!-- 店舗情報の表示 -->
+    <p>店舗名: {{ $shop->shop_name }}</p>
 
-
-
-    <form action="/send_email" method="POST">
+    <form action="/send_email" method="POST" class="email_contents">
         @csrf
-        <label for="shop_id" class="email_tittle">店舗:</label>
-        <select class="email_shop_id" id="shop_id" name="shop_id" required>
-            <option value="">店舗を選択</option>
-            @foreach($shops ?? '' as $shop)
-            <option value="{{ $shop->id }}">{{ $shop->shop_name }}</option>
-            @endforeach
-        </select><br>
+        <input type="hidden" name="shop_id" value="{{ $shop->id }}">
 
         <label for="subject" class="email_tittle">件名:</label>
-        <input type="text" id="subject" name="subject" required><br>
+        <input type="text" class="email_subject" id="subject" name="subject" required><br>
 
         <label for="message" class="email_tittle">内容:</label>
         <textarea id="message" class="email_message" name="message" required></textarea><br>
 
-        <button type="submit">送信</button>
+        <button type="submit" class="email_button">送信</button>
     </form>
     @endsection

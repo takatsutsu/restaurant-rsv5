@@ -15,12 +15,89 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        //admin
         $now = Carbon::now();
+        $param = [
+            'name' => '管理者',
+            'email' => 'admin@gmail.com',
+            'email_verified_at' => $now,
+            'password' => bcrypt('password'),
+            'role' => 'admin',
+            'created_at' => $now,
+            'updated_at' => $now,
+        ];
+        DB::table('users')->insert($param);
+
+        //shop-manager　５件のみ登録
+        $param = [
+            'name' => '仙人（管理者）',
+            'email' => 'shop0001@gmail.com',
+            'email_verified_at' => $now,
+            'password' => bcrypt('password'),
+            'role' => 'shop-admin',
+            'shop_id' => 1,
+            'created_at' => $now,
+            'updated_at' => $now,
+        ];
+        DB::table('users')->insert($param);
+
+        $param = [
+            'name' => '牛助（管理者）',
+            'email' => 'shop0002@gmail.com',
+            'email_verified_at' => $now,
+            'password' => bcrypt('password'),
+            'role' => 'shop-admin',
+            'shop_id' => 2,
+            'created_at' => $now,
+            'updated_at' => $now,
+        ];
+        DB::table('users')->insert($param);
+
+        $param = [
+            'name' => '戦慄（管理者）',
+            'email' => 'shop0003@gmail.com',
+            'email_verified_at' => $now,
+            'password' => bcrypt('password'),
+            'role' => 'shop-admin',
+            'shop_id' => 3,
+            'created_at' => $now,
+            'updated_at' => $now,
+        ];
+        DB::table('users')->insert($param);
+
+        $param = [
+            'name' => 'ルーク（管理者）',
+            'email' => 'shop0004@gmail.com',
+            'email_verified_at' => $now,
+            'password' => bcrypt('password'),
+            'role' => 'shop-admin',
+            'shop_id' => 4,
+            'created_at' => $now,
+            'updated_at' => $now,
+        ];
+        DB::table('users')->insert($param);
+
+        $param = [
+            'name' => '香（管理者）',
+            'email' => 'shop0005@gmail.com',
+            'email_verified_at' => $now,
+            'password' => bcrypt('password'),
+            'role' => 'shop-admin',
+            'shop_id' => 5,
+            'created_at' => $now,
+            'updated_at' => $now,
+        ];
+        DB::table('users')->insert($param);
+
+
+
+        //一般利用者
         $param = [
             'name' => '山田太郎',
             'email' => 'aa@gmail.com',
             'email_verified_at' => $now,
             'password' =>bcrypt('password'),
+            'role' => 'user',
             'created_at' => $now,
             'updated_at' => $now,
         ];
@@ -31,6 +108,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'bb@gmail.com',
             'email_verified_at' => $now,
             'password' => bcrypt('password'),
+            'role' => 'user',
             'created_at' => $now,
             'updated_at' => $now,
         ];
@@ -41,6 +119,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'cc@gmail.com',
             'email_verified_at' => $now,
             'password' => bcrypt('password'),
+            'role' => 'user',
             'created_at' => $now,
             'updated_at' => $now,
         ];
@@ -51,6 +130,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'dd@gmail.com',
             'email_verified_at' => $now,
             'password' => bcrypt('password'),
+            'role' => 'user',
             'created_at' => $now,
             'updated_at' => $now,
         ];
@@ -61,6 +141,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'ee@gmail.com',
             'email_verified_at' => $now,
             'password' => bcrypt('password'),
+            'role' => 'user',
             'created_at' => $now,
             'updated_at' => $now,
         ];
@@ -71,6 +152,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'ff@gmail.com',
             'email_verified_at' => $now,
             'password' => bcrypt('password'),
+            'role' => 'user',
             'created_at' => $now,
             'updated_at' => $now,
         ];
@@ -81,6 +163,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'gg@gmail.com',
             'email_verified_at' => $now,
             'password' => bcrypt('password'),
+            'role' => 'user',
             'created_at' => $now,
             'updated_at' => $now,
         ];
@@ -91,6 +174,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'hh@gmail.com',
             'email_verified_at' => $now,
             'password' => bcrypt('password'),
+            'role' => 'user',
             'created_at' => $now,
             'updated_at' => $now,
         ];
@@ -101,6 +185,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'ii@gmail.com',
             'email_verified_at' => $now,
             'password' => bcrypt('password'),
+            'role' => 'user',
             'created_at' => $now,
             'updated_at' => $now,
         ];
@@ -113,6 +198,7 @@ class UsersTableSeeder extends Seeder
             'password' => bcrypt('password'),
             'created_at' => $now,
             'updated_at' => $now,
+            'role' => 'user',
         ];
         DB::table('users')->insert($param);
 
@@ -121,6 +207,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'kk@gmail.com',
             'email_verified_at' => $now,
             'password' => bcrypt('password'),
+            'role' => 'user',
             'created_at' => $now,
             'updated_at' => $now,
         ];
@@ -131,6 +218,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'll@gmail.com',
             'email_verified_at' => $now,
             'password' => bcrypt('password'),
+            'role' => 'user',
             'created_at' => $now,
             'updated_at' => $now,
         ];
@@ -141,6 +229,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'mm@gmail.com',
             'email_verified_at' => $now,
             'password' => bcrypt('password'),
+            'role' => 'user',
             'created_at' => $now,
             'updated_at' => $now,
         ];
@@ -151,6 +240,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'nn@gmail.com',
             'email_verified_at' => $now,
             'password' => bcrypt('password'),
+            'role' => 'user',
             'created_at' => $now,
             'updated_at' => $now,
         ];
@@ -161,6 +251,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'oo@gmail.com',
             'email_verified_at' => $now,
             'password' => bcrypt('password'),
+            'role' => 'user',
             'created_at' => $now,
             'updated_at' => $now,
         ];
@@ -171,6 +262,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'pp@gmail.com',
             'email_verified_at' => $now,
             'password' => bcrypt('password'),
+            'role' => 'user',
             'created_at' => $now,
             'updated_at' => $now,
         ];
@@ -181,6 +273,7 @@ class UsersTableSeeder extends Seeder
             'email' => 'qq@gmail.com',
             'email_verified_at' => $now,
             'password' => bcrypt('password'),
+            'role' => 'user',
             'created_at' => $now,
             'updated_at' => $now,
         ];

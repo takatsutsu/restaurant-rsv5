@@ -35,7 +35,6 @@ Route::get('/detail/{id}', [ShopController::class, 'detail']);
 Route::post('/search', [ShopController::class, 'search']);
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/register', [RegisterController::class, 'register']);
-Route::get('/email_form', [EmailController::class, 'email_form']);
 Route::post('/send_email', [EmailController::class, 'send_email']);
 
 Route::middleware('auth')->group(function () {
@@ -50,6 +49,7 @@ Route::middleware('auth')->group(function () {
         Route::get('/my_page', [My_pageController::class, 'my_page']);
         Route::get('/reserve_edit/{id}', [ReserveController::class, 'reserve_edit']);
         Route::post('/reserve_update', [ReserveController::class, 'reserve_update']);
+        Route::get('/email_form', [EmailController::class, 'email_form']);
     });
     // メール認証が必要なユーザー向けルート
     Route::get('/email/verify', function () {

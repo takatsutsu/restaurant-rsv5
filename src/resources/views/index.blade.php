@@ -15,6 +15,9 @@
 <body>
     <div class="shop_container">
         <!-- 検索フォームの追加 -->
+        @if (Auth::check() && Auth::user()->hasVerifiedEmail())
+        <p class="shop_user-name">{{ $user->name }}様</p>
+        @endif
         <div class="shop_search-form">
             <form action="/search" method="post">
                 @csrf
@@ -42,7 +45,7 @@
             <div class="shop_card">
                 <form class="shop_detail-form" action="/detail" method="get">
                     <input type="hidden" name="id_detail" value="{{ $shop->id}}" />
-                    <img src="{{ asset('storage/' . $shop->shop_picture) }}" alt="Shop Picture">
+                    <img src="{{ asset('storage/' . $shop->genre->genre_picture) }}" alt="Shop Picture">
                     <h2>{{ $shop->shop_name }}</h2>
                     <p>#{{ $shop->area->area_name }} #{{ $shop->genre->genre_name }}</p>
                     <div class="shop_button-group">

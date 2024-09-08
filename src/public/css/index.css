@@ -3,10 +3,13 @@
     margin: 20px auto;
 }
 
+.shop_user-name{
+    font-size: 25px;
+    font-weight: bold;
+}
 
 .shop_grid-container {
     display: grid;
-
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
 }
@@ -38,8 +41,6 @@
     gap: 10px;
 }
 
-
-
 .shop_search-field {
     width: auto;
     display: inline-block;
@@ -47,10 +48,6 @@
 .shop_search-form .btn {
     margin-left: 10px;
 }
-
-/* .shop_btn-content {
-    font-size: 11px;
-} */
 
 .shop_heart-icon {
     width: 35px;

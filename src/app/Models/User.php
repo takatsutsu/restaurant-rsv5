@@ -23,6 +23,8 @@ class User extends Authenticatable implements MustVerifyEmail
         'name',
         'email',
         'password',
+        'role',
+        'shop_id',
     ];
 
     /**
@@ -52,5 +54,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function favorite()
     {
         return $this->hasMany("App\Models\Favorite");
+    }
+
+    public function shop()
+    {
+        return $this->belongsTo(Shop::class);
     }
 }
