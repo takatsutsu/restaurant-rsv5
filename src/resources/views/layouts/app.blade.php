@@ -28,7 +28,7 @@
                         <ul>
                             @if (Auth::check() && Auth::user()->hasVerifiedEmail())
                             @if (Auth::user()->role === 'user')
-                            <li>
+                                    <li>
                                 <form class="form" action="/" method="get">
                                     @csrf
                                     <button class="menu-content_button">Home</button>
@@ -61,7 +61,7 @@
                                 </form>
                             </li>
                             <li>
-                                <form class="form" action="/My_Page" method="get">
+                                <form class="form" action="/shop_admin_form" method="get">
                                     @csrf
                                     <button class="menu-content_button">ShopManager-Registration</button>
                                 </form>

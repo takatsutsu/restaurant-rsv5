@@ -50,6 +50,9 @@ Route::middleware('auth')->group(function () {
         Route::get('/reserve_edit/{id}', [ReserveController::class, 'reserve_edit']);
         Route::post('/reserve_update', [ReserveController::class, 'reserve_update']);
         Route::get('/email_form', [EmailController::class, 'email_form']);
+        Route::get('/shop_admin_form', [RegisterController::class, 'shop_admin_form']);
+        Route::post('/shop_admin_register', [RegisterController::class, 'shop_admin_register']);
+
     });
     // メール認証が必要なユーザー向けルート
     Route::get('/email/verify', function () {

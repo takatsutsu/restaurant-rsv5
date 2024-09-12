@@ -1,0 +1,68 @@
+@extends('layouts.app')
+
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/bootstrap_custom2.min.css') }}">
+<link rel="stylesheet" href="{{ asset('css/shop_admin_register.css') }}">
+@endsection
+
+@section('content')
+<div class="main_head">
+    <h2 class="small-tittle">アカウント登録画面（店舗管理者）</h2>
+</div>
+<form class="form" action="/shop_admin_register" method="post">
+    @csrf
+    <div class="form_main">
+        <p>お名前 ：　　　　　　　<input type="text" name="name" size="40" placeholder="" value="{{ old('name') }}" /></p>
+        <div class="form__error">
+            @error('name')
+            {{ $message }}
+            @enderror
+        </div>
+        <p>メールアドレス ：　　　<input type="email" name="email" size="40" placeholder="" value="{{ old('email') }}" /> </p>
+        <div class="form__error">
+            @error('email')
+            {{ $message }}
+            @enderror
+        </div>
+
+        <p>パスワード ：　　　　　<input type="password" size="40" name="password" /></p>
+        <div class="form__error">
+            @error('password')
+            {{ $message }}
+            @enderror
+        </div>
+
+        <p>パスワード（確認用）：　<input type="password" size="40" name="password_confirmation" /></p>
+
+        <div class="form__error">
+            @error('password_confirmation')
+            {{ $message }}
+            @enderror
+        </div>
+
+        <p>対象店舗：　　　　　　
+
+            <select name="id" class="shop_select" >
+                <option value="">店舗を選択</option>
+                @foreach($shops as $shop)
+                <option value="{{ $shop->id }}">
+                    {{ $shop->shop_name }}
+                </option>
+                @endforeach
+            </select>
+        </p>
+        <div class="form__error">
+            @error('id')
+            {{ $message }}
+            @enderror
+        </div>
+
+
+        <div class="form_btn">
+            <input type="submit" />
+        </div>
+    </div>
+
+</form>
+
+@endsection

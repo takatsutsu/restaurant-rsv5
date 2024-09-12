@@ -50,24 +50,20 @@ class ShopController extends Controller
         $search_genre = $request->search_genre;
         $search_shop = $request->search_shop;
 
-        // クエリビルダを使用してクエリを作成
         $query = Shop::leftJoin('favorites', function ($join) use ($userId) {
             $join->on('shops.id', '=', 'favorites.shop_id')
             ->where('favorites.user_id', '=', $userId);
         })
         ->select('shops.*', \DB::raw('CASE WHEN favorites.user_id IS NOT NULL THEN TRUE ELSE FALSE END AS is_favorite'));
 
-        // エリアの検索条件を追加
         if (!empty($search_area)) {
             $query->where('area_id', $search_area);
         }
 
-        // ジャンルの検索条件を追加
         if (!empty($search_genre)) {
             $query->where('genre_id', $search_genre);
         }
 
-        // 店舗名の検索条件を追加
         if (!empty($search_shop)) {
             $query->where('shop_name', 'like', '%' . $search_shop . '%');
         }
@@ -78,7 +74,7 @@ class ShopController extends Controller
             $shop->is_favorite = $query->firstWhere('id', $shop->id)->is_favorite;
         });
 
-        return view('index', compact('shops', 'genres', 'areas'));
+        return view('index', compact('shops', 'genres', 'areas', 'search_area','search_genre', 'search_shop'));
     }
 
 

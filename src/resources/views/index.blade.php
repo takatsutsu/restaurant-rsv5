@@ -25,17 +25,21 @@
                     <option value="">エリアを選択</option>
                     <!-- エリアのオプションを追加 -->
                     @foreach($areas as $area)
-                    <option value="{{ $area->id }}">{{ $area->area_name }}</option>
+                    <option value="{{ $area->id }}" {{ old('search_area', $search_area ?? '') == $area->id ? 'selected' : '' }}>
+                        {{ $area->area_name }}
+                    </option>
                     @endforeach
                 </select>
                 <select name="search_genre" class="shop_search-field">
                     <option value="">ジャンルを選択</option>
                     <!-- ジャンルのオプションを追加 -->
                     @foreach($genres as $genre)
-                    <option value="{{ $genre->id }}">{{ $genre->genre_name }}</option>
+                    <option value="{{ $genre->id }}" {{ old('search_genre', $search_genre ?? '') == $genre->id ? 'selected' : '' }}>
+                        {{ $genre->genre_name }}
+                    </option>
                     @endforeach
                 </select>
-                <input type="text" name="search_shop" class="shop_search-field" placeholder="店舗名を入力">
+                <input type="text" name="search_shop" class="shop_search-field" placeholder="店舗名を入力" value="{{ old('search_shop', $search_shop ?? '') }}">
                 <button type="submit" class="btn btn-primary">検索</button>
             </form>
         </div>

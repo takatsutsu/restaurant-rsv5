@@ -12,7 +12,9 @@
         認証メールを送付致しましたので
         メールより認証を行ってください。
     </div>
-
+    <p></p>
+    <p></p>
+    <p>
     <form method="POST" action="{{ route('verification.send') }}">
         @csrf
         <button type="submit" class="form_btn">認証メール再送信</button>
@@ -24,3 +26,4 @@
         </div>
         @endif
     </form>
+    </p>
