@@ -17,13 +17,15 @@
     <p>
     <form method="POST" action="{{ route('verification.send') }}">
         @csrf
-        <button type="submit" class="form_btn">認証メール再送信</button>
+        <div class="auth_form_btn">
+        <button type="submit" class="auth_btn">認証メール再送信</button>
+        </div>
         @endsection
 
-        @if (session('message'))
-        <div class="alert-success" role="alert">
-            {{ session('message') }}
-        </div>
-        @endif
-    </form>
-    </p>
+@if (session('message'))
+<div class="alert-success" role="alert">
+    {{ session('message') }}
+</div>
+@endif
+</form>
+</p>

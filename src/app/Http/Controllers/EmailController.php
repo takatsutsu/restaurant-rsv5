@@ -10,6 +10,8 @@ use App\Models\Favorite;
 use App\Models\Shop;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\NoticeEmail;
+use PharIo\Manifest\Email;
+use App\Http\Requests\EmailRequest;
 
 class EmailController extends Controller
 {
@@ -26,12 +28,12 @@ class EmailController extends Controller
     }
 
     // メール送信処理
-    public function send_email(Request $request)
+    public function send_email(EmailRequest $request)
     {
         // フォームから送信されたデータを取得
-        $shop_id = $request->input('shop_id');
-        $subject = $request->input('subject');
-        $messageContent = $request->input('message');
+        $shop_id = $request->email_shop_id;
+        $subject = $request->email_subject;
+        $messageContent = $request->email_message;
 
         // 店舗名を取得
         $shop = Shop::find($shop_id);

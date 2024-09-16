@@ -24,22 +24,18 @@ class EmailRequest extends FormRequest
     public function rules()
     {
         return [
-            'shop_name'=> 'required|string|max:50',
-            'shop_explanation' => 'required|string|max:200',
-            'genre_id' => 'required',
-            'area_id' => 'required',
+            'email_subject'=> 'required|string|max:50',
+            'email_message' => 'required|string|max:250',
         ];
     }
 
     public function messages()
     {
         return [
-            'shop_name.required' => '店舗名は必須です。',
-            'shop_name.max' => '店舗名は最大50文字までです。',
-            'shop_explanation.required' => '店舗説明は必須です。',
-            'shop_explanation.max' => '店舗説明は最大200文字までです。',
-            'genre_id.required' => 'ジャンルは必須です。',
-            'area_id.required' => 'エリアは必須です。',
+            'email_subject.required' => '店舗名は必須です。',
+            'email_subject.max' => '店舗名は最大50文字までです。',
+            'email_message.required' => 'メッセージは必須です。',
+            'email_message.max' => '店舗説明は最大200文字までです。',
         ];
     }
 }
