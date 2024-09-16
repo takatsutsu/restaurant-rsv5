@@ -41,21 +41,35 @@ Route::middleware('auth')->group(function () {
 
     // メール認証済みのユーザー向けルート
     Route::middleware('verified')->group(function () {
+        //予約登録
         Route::post('/reserve_store', [ReserveController::class, 'reserve_store']);
+        //予約削除
         Route::post('/reserve_delete', [ReserveController::class, 'reserve_delete']);
+        //お気に入り登録（店舗情報画面から）
         Route::get('/favo_store/{id}', [FavoriteController::class, 'favo_store']);
+        //お気に入り削除（店舗情報画面から）
         Route::get('/favo_delete/{id}', [FavoriteController::class, 'favo_delete']);
+        //お気に入り削除（マイページから）
         Route::get('/my_favo_delete/{id}', [FavoriteController::class, 'my_favo_delete']);
+        //マイページ表示
         Route::get('/my_page', [My_pageController::class, 'my_page']);
+        //予約情報変更画面
         Route::get('/reserve_edit/{id}', [ReserveController::class, 'reserve_edit']);
         Route::post('/reserve_update', [ReserveController::class, 'reserve_update']);
+        //お知らせメールの送信フォーム
         Route::get('/email_form', [EmailController::class, 'email_form']);
+        //店舗管理者の登録画面
         Route::get('/shop_admin_form', [RegisterController::class, 'shop_admin_form']);
         Route::post('/shop_admin_register', [RegisterController::class, 'shop_admin_register']);
+        //店舗情報の更新画面
         Route::get('/shop_edit', [ShopController::class, 'shop_edit']);
         Route::post('/shop_update', [ShopController::class, 'shop_update']);
+        //店舗情報の登録画面
         Route::get('/shop_form', [ShopController::class, 'shop_form']);
         Route::post('/shop_store', [ShopController::class, 'shop_store']);
+        //店舗別予約一覧
+        Route::get('/shop_reserve', [ReserveController::class, 'shop_reserve']);
+
 
     });
     // メール認証が必要なユーザー向けルート

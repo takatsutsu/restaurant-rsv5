@@ -4,7 +4,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Shop;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ReserveRequest;
@@ -78,6 +78,23 @@ class ReserveController extends Controller
 
         // 成功メッセージと共にリダイレクト
         return redirect('/my_page')->with('message', '予約を更新しました。');
+    }
+
+
+    public function shop_reserve() {
+        $user = Auth::user();
+
+        // ユーザーがショップ管理者であり、メール認証が完了していることを確認
+        if ($user->role !== 'shop-admin' || $user->email_verified_at === null) {
+            return redirect('/')->with('message', 'アクセスが許可されていません。');
+        }
+
+        // ログインしているユーザーのshop_idに一致する予約を取得
+        $reservations = Reservation::where('shop_id', $user->shop_id)->get();
+
+        // 取得した予約データをビューに渡す
+        return view('shop_reserve', compact('reservations'));
+
     }
 
 }
