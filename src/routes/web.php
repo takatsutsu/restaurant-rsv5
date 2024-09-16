@@ -50,8 +50,12 @@ Route::middleware('auth')->group(function () {
         Route::get('/reserve_edit/{id}', [ReserveController::class, 'reserve_edit']);
         Route::post('/reserve_update', [ReserveController::class, 'reserve_update']);
         Route::get('/email_form', [EmailController::class, 'email_form']);
-        Route::get('/shop_admin_form', [RegisterController::class, 'shop_admin_form']);
-        Route::post('/shop_admin_register', [RegisterController::class, 'shop_admin_register']);
+        Route::get('/shop-admin_form', [RegisterController::class, 'shop-admin_form']);
+        Route::post('/shop-admin_register', [RegisterController::class, 'shop-admin_register']);
+        Route::get('/shop_edit', [ShopController::class, 'shop_edit']);
+        Route::post('/shop_update', [ShopController::class, 'shop_update']);
+        Route::get('/shop_form', [ShopController::class, 'shop_form']);
+        Route::post('/shop_store', [ShopController::class, 'shop_store']);
 
     });
     // メール認証が必要なユーザー向けルート

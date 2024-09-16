@@ -58,20 +58,20 @@ class ReserveController extends Controller
     public function reserve_update(ReserveRequest $request)
     {
         // 予約IDを取得
-        $reservationId = $request->input('reserve_id');
+        $reservationId = $request->reserve_id;
 
         // 予約情報を取得
         $reservation = Reservation::findOrFail($reservationId);
 
         // 日付と時間を結合して日時を作成
-        $dateTimeString = $request->input('reserve_date') . ' ' . $request->input('reserve_time');
+        $dateTimeString = $request->reserve_date . ' ' . $request->reserve_time;
         $dateTime = Carbon::parse($dateTimeString);
 
         // 予約情報を更新
-        $reservation->reserve_date = $request->input('reserve_date');
-        $reservation->reserve_time = $request->input('reserve_time');
+        $reservation->reserve_date = $request->reserve_date;
+        $reservation->reserve_time = $request->reserve_time;
         $reservation->reserve_datetime = $dateTime;
-        $reservation->reserve_num = $request->input('reserve_num');
+        $reservation->reserve_num = $request->reserve_num;
 
         // 変更を保存
         $reservation->save();

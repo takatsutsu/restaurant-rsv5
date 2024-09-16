@@ -23,7 +23,6 @@ class EmailController extends Controller
         $shop = Shop::find($user->shop_id);
 
         return view('email_form', compact('shop'));
-
     }
 
     // メール送信処理
@@ -50,6 +49,5 @@ class EmailController extends Controller
         }
 
         return redirect('/email_form')->with('message', 'メールを送信しました。');
-
     }
 }

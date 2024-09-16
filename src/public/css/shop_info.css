@@ -1,0 +1,68 @@
+.shop_edit_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* 画面全体の中央に配置するため */
+    padding: 20px;
+}
+
+.shop_edit_form {
+    width: 100%;
+    max-width: 600px; /* フォームの最大幅を設定 */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.shop_edit_group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.shop_edit_group label {
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.shop-edit_name,
+.shop-edit_explanation,
+.shop-edit_area,
+.shop-edit_genre {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.shop-edit_explanation {
+    resize: none;
+    height: 150px; /* テキストエリアの高さを設定 */
+}
+
+.shop-edit_button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.shop-edit_button:hover {
+    background-color: #0056b3;
+}
+
+.alert {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+}

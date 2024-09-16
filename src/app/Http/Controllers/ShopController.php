@@ -3,6 +3,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Shop_InfoRequest;
 use App\Models\Shop;
 use App\Models\Favorite;
 use App\Models\Genre;
@@ -83,4 +84,80 @@ class ShopController extends Controller
         $shop = Shop::with('area', 'genre')->findOrFail($id);
         return view('detail', compact('shop'));
     }
+
+    public function shop_edit()
+    {
+        $user = Auth::user();
+
+        // ユーザーがショップ管理者であり、メール認証が完了していることを確認
+        if ($user->role !== 'shop-admin' || $user->email_verified_at === null) {
+            return redirect('/')->with('message', 'アクセスが許可されていません。');
+        }
+        $genres = Genre::all();
+        $areas = Area::all();
+        $shop = Shop::where('id', $user->shop_id)->firstOrFail();
+        return view('shop_edit', compact('shop', 'genres', 'areas'));
+    }
+
+    public function shop_update(shop_InfoRequest $request)
+    {
+        $user = Auth::user();
+
+        // ユーザーがショップ管理者であり、メール認証が完了していることを確認
+        if ($user->role !== 'shop-admin' || $user->email_verified_at === null) {
+            return redirect('/')->with('message', 'アクセスが許可されていません。');
+        }
+        if (Auth::user()->shop_id !== null){
+        $shop = Shop::where('id', $request->shop_id)->firstOrFail();
+
+        $shop->shop_name = $request->shop_name;
+        $shop->shop_explanation = $request->shop_explanation;
+        $shop->genre_id = $request->genre_id;
+        $shop->area_id = $request->area_id;
+        // 変更を保存
+        $shop->save();
+
+        // 成功メッセージと共にリダイレクト
+        return redirect('/')->with('message', '店舗情報を更新しました。');
+        }
+    }
+
+    public function shop_form()
+    {
+        $user = Auth::user();
+
+        // ユーザーがショップ管理者であり、メール認証が完了していることを確認
+        if ($user->role !== 'shop-admin' || $user->email_verified_at === null) {
+            return redirect('/')->with('message', 'アクセスが許可されていません。');
+        }
+        $genres = Genre::all();
+        $areas = Area::all();
+        return view('shop_form', compact('genres', 'areas'));
+    }
+
+    public function shop_store(shop_InfoRequest $request)
+    {
+        $user = Auth::user();
+
+        // ユーザーがショップ管理者であり、メール認証が完了していることを確認
+        if ($user->role !== 'shop-admin' || $user->email_verified_at === null ) {
+            return redirect('/')->with('message', 'アクセスが許可されていません。');
+        }
+
+        // 新しい店舗情報をshopsテーブルに登録
+        $shop = Shop::create([
+            'shop_name' => $request->shop_name,
+            'shop_explanation' => $request->shop_explanation,
+            'genre_id' => $request->genre_id,
+            'area_id' => $request->area_id,
+        ]);
+
+        // 登録されたショップのIDを取得して、usersテーブルのshop_idに代入
+        $user->shop_id = $shop->id;
+        $user->save();  // ユーザー情報を更新
+
+        // 成功メッセージと共にリダイレクト
+        return redirect('/')->with('message', '店舗情報を登録し、ユーザー情報を更新しました。');
+    }
+
 }

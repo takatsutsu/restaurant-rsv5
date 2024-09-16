@@ -29,7 +29,7 @@ class Shop_AdminRequest extends FormRequest
             'name' => 'required|string|max:50',
             'email' => 'required|email|max:50|unique:users',
             'password' => 'required|string|confirmed|min:8|max:255',
-            'id' => 'required|exists:shops,id|unique:users',
+            'id' => 'unique:users',
         ];
     }
 
@@ -46,8 +46,6 @@ class Shop_AdminRequest extends FormRequest
             'password.confirmed' => 'パスワード確認が一致しません。',
             'password.min' => 'パスワードは少なくとも8文字である必要があります。',
             'password.max' => 'パスワードが無効です。',
-            'id.required' => '対象店舗は必須です。',
-            'id.exists' => '選択した店舗は無効です。',
             'id.unique' => 'この店舗はすでに登録されています。',
         ];
     }
