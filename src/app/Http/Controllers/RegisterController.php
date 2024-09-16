@@ -36,10 +36,7 @@ class RegisterController extends Controller
         if (Auth::user()->role !== 'admin' || Auth::user()->email_verified_at === null) {
             return redirect('/')->with('message', 'アクセスが許可されていません。');
         }
-
-        $shops = Shop::all();
-
-        return view('auth.shop_admin_register', compact('shops'));
+        return view('auth.shop_admin_register');
 
     }
 
@@ -49,16 +46,18 @@ class RegisterController extends Controller
             return redirect('/')->with('message', 'アクセスが許可されていません。');
         }
 
-        User::create([
+        $user = User::create([
         'name' => $request->name,
         'email' => $request->email,
-        'email_verified_at' => Carbon::now(),
         'password' => bcrypt($request->password),
         'role' => 'shop-admin',
-        'shop_id' => $request->id
         ]);
 
-        return redirect('/')->with('message', '店舗管理者を登録しました。');
+        Auth::login($user);
+
+        event(new Registered($user));
+
+        return redirect()->route('registration.success');
 
     }
 

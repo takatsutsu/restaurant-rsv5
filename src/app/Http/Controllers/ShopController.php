@@ -47,6 +47,9 @@ class ShopController extends Controller
         $genres = Genre::all();
         $areas = Area::all();
 
+        $user = Auth::user();
+
+
         $search_area = $request->search_area;
         $search_genre = $request->search_genre;
         $search_shop = $request->search_shop;
@@ -75,7 +78,7 @@ class ShopController extends Controller
             $shop->is_favorite = $query->firstWhere('id', $shop->id)->is_favorite;
         });
 
-        return view('index', compact('shops', 'genres', 'areas', 'search_area','search_genre', 'search_shop'));
+        return view('index', compact('shops', 'genres', 'areas', 'search_area','search_genre', 'search_shop', 'user'));
     }
 
 
@@ -108,7 +111,7 @@ class ShopController extends Controller
             return redirect('/')->with('message', 'アクセスが許可されていません。');
         }
         if (Auth::user()->shop_id !== null){
-        $shop = Shop::where('id', $request->shop_id)->firstOrFail();
+        $shop = Shop::where('id', $user->shop_id)->firstOrFail();
 
         $shop->shop_name = $request->shop_name;
         $shop->shop_explanation = $request->shop_explanation;

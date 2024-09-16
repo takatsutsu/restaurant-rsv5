@@ -9,7 +9,7 @@
 <div class="main_head">
     <h2 class="small-tittle">アカウント登録画面（店舗管理者）</h2>
 </div>
-<form class="form" action="/shop-admin_register" method="post">
+<form class="form" action="/shop_admin_register" method="post">
     @csrf
     <div class="form_main">
         <p>お名前 ：　　　　　　　<input type="text" name="name" size="40" placeholder="" value="{{ old('name') }}" /></p>
@@ -39,24 +39,6 @@
             {{ $message }}
             @enderror
         </div>
-
-        <p>対象店舗：　　　　　　
-
-            <select name="id" class="shop_select" >
-                <option value="">店舗を選択</option>
-                @foreach($shops as $shop)
-                <option value="{{ $shop->id }}">
-                    {{ $shop->shop_name }}
-                </option>
-                @endforeach
-            </select>
-        </p>
-        <div class="form__error">
-            @error('id')
-            {{ $message }}
-            @enderror
-        </div>
-
 
         <div class="form_btn">
             <input type="submit" />
