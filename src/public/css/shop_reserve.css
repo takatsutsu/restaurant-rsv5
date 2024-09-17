@@ -1,0 +1,20 @@
+.shop_rese_box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px; /* カード間のスペースを設定 */
+}
+
+.shop_rese_card {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: calc(33.333% - 16px);
+    box-sizing: border-box;
+}
+@media screen and (max-width: 768px) {
+    .shop_rese_card {
+        width: calc(100% - 16px);
+    }
+}

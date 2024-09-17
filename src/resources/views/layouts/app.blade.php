@@ -101,6 +101,12 @@
                                     <button class="menu-content_button">Notice-Email</button>
                                 </form>
                             </li>
+                            <li>
+                                <form class="form" action="/shop_reserve" method="get">
+                                    @csrf
+                                    <button class="menu-content_button">Reservation-Info</button>
+                                </form>
+                            </li>
                             @endif
 
                             @else
