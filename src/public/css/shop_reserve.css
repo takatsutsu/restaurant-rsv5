@@ -1,3 +1,9 @@
+.shop_rese_main {
+    width: 90%;
+    margin: 0 auto;
+}
+
+
 .shop_rese_box {
     display: flex;
     flex-wrap: wrap;
