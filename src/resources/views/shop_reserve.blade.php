@@ -22,8 +22,6 @@
                         <p class="shop_rese_card-text">予約日: {{ $reservation->reserve_date }}</p>
                         <p class="shop_rese_card-text">予約時間: {{ $reservation->reserve_time }}</p>
                         <p class="shop_rese_card-text">人数: {{ $reservation->reserve_num }}人</p>
-                        <input type="hidden" name="reserve_number" value="{{$reservation->id}}" />
-                        <a href="/reserve_edit/{{ $reservation->id }}" class="">予約変更</a>
                     </div>
                 </form>
             </div>
