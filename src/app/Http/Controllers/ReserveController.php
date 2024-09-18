@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\ReserveRequest;
 use App\Models\Reservation;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class ReserveController extends Controller
 {
@@ -18,18 +19,17 @@ class ReserveController extends Controller
         $date = $request->reserve_date;
         $time = $request->reserve_time;
 
-        $dateTimeString = $date . ' ' . $time;
-        $dateTime = Carbon::parse($dateTimeString);
+        $datetime_string = $date . ' ' . $time;
+        $datetime = Carbon::parse($datetime_string);
 
         $user = Auth::User();
 
-    
         $reserve = ([
             'user_id' => $user->id,
             'shop_id' => $request->shop_id,
             'reserve_date' =>$request->reserve_date,
             'reserve_time' => $request->reserve_time,
-            'reserve_datetime' => $dateTime,
+            'reserve_datetime' => $datetime,
             'reserve_num' => $request->reserve_num
         ]);
 
@@ -94,6 +94,38 @@ class ReserveController extends Controller
 
         // 取得した予約データをビューに渡す
         return view('shop_reserve', compact('reservations'));
+    }
+
+    public function reserve_qr($id)
+    {
+        $user = Auth::user();
+
+        $url = config('app.url').'/reserve_match/'.$id;
+
+        // QRコードを生成
+        $qrcode = QrCode::size(200)->generate($url);
+
+        // QRコードをビューに渡す
+        return view('reserve_qr',  compact('qrcode','url'));
+    }
+
+    public function reserve_match($id)
+    {
+        $user = Auth::user();
+        if ($user->role !== 'shop-admin' || $user->email_verified_at === null) {
+            return redirect('/')->with('message', 'アクセスが許可されていません。');
+        }
+
+        $reservation = Reservation::where('id', $id)->first();
+
+        if ($reservation) {
+            if ($user->shop_id !== $reservation->shop_id) {
+                return redirect('/')->with('message', '店舗が違います。');
+            }
+            return view('reserve_match',  compact('reservation'));
+        } else {
+            return redirect('/')->with('message', '予約情報が存在しません。');
+        }
 
     }
 

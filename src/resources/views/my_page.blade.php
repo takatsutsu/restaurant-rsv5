@@ -27,6 +27,7 @@
                                 <p class="my_rese_card-text">人数: {{ $reservation->reserve_num }}人</p>
                                 <input type="hidden" name="reserve_number" value="{{$reservation->id}}" />
                                 <a href="/reserve_edit/{{ $reservation->id }}" class="">予約変更</a>
+                                <a href="/reserve_qr/{{ $reservation->id }}" class="">QR表示</a>
                             </div>
                         </form>
                     </div>

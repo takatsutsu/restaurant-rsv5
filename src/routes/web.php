@@ -69,8 +69,9 @@ Route::middleware('auth')->group(function () {
         Route::post('/shop_store', [ShopController::class, 'shop_store']);
         //店舗別予約一覧
         Route::get('/shop_reserve', [ReserveController::class, 'shop_reserve']);
-
-
+        Route::get('/reserve_qr/{id}', [ReserveController::class, 'reserve_qr']);
+        //店舗における予約照合
+        Route::get('/reserve_match/{id}', [ReserveController::class, 'reserve_match']);
     });
     // メール認証が必要なユーザー向けルート
     Route::get('/email/verify', function () {
