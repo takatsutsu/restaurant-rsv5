@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 
 
@@ -57,8 +58,9 @@ class User extends Authenticatable implements MustVerifyEmail
         return $this->hasMany("App\Models\Favorite");
     }
 
-    public function shop()
+    public function shop(): HasOne
     {
-        return $this->belongsTo(Shop::class);
+        return $this->hasOne(Shop::class, 'id', 'shop_id');
     }
+
 }

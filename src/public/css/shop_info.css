@@ -3,13 +3,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh; /* 画面全体の中央に配置するため */
+    min-height: 100vh;
     padding: 20px;
 }
 
 .shop_edit_form {
     width: 100%;
-    max-width: 600px; /* フォームの最大幅を設定 */
+    max-width: 600px;
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 10px;
@@ -42,7 +42,7 @@
 
 .shop-edit_explanation {
     resize: none;
-    height: 150px; /* テキストエリアの高さを設定 */
+    height: 150px;
 }
 
 .shop-edit_button {

@@ -1,8 +1,5 @@
-span {
-    color: blue;
-}
 
-h2 {
+.small-tittle{
     text-align: center;
     margin-bottom: 20px;
 }
@@ -10,18 +7,6 @@ h2 {
 .form_main {
     font-size: 20px;
 }
-
-.mainform_message1 {
-    color: red;
-}
-.mainform_message2 {
-    color: red;
-}
-
-.mainform_message3 {
-    color: red;
-}
-
 
 .form_main {
     text-align: center;

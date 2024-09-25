@@ -1,65 +1,65 @@
 /* email_form.css */
 .email_container {
-    text-align: center; /* タイトルを中央に配置 */
-    margin-bottom: 20px; /* フォームとの間に余白を追加 */
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 .email_head-tittle {
-    font-size: 24px; /* タイトルの文字サイズを大きく */
-    font-weight: bold; /* タイトルを太字に */
-    color: #333; /* タイトルの文字色 */
-    margin-bottom: 10px; /* タイトルとフォームのラベルの間に余白 */
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
     text-align: center;
 }
 
 .email_contents {
-    max-width: 600px; /* フォームの最大幅を設定 */
-    margin: 0 auto; /* フォームを中央に配置 */
-    padding: 20px; /* フォーム内の余白 */
-    border: 1px solid #ddd; /* フォームのボーダー */
-    border-radius: 8px; /* ボーダーを角丸に */
-    background-color: #f9f9f9; /* フォームの背景色 */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 影を追加して立体感を出す */
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .email_tittle {
     width: 100%;
-    display: block; /* ラベルをブロック要素にして改行 */
-    margin-bottom: 5px; /* ラベルと入力フィールドの間に余白 */
-    font-weight: bold; /* ラベルの文字を太字に */
-    color: #555; /* ラベルの文字色 */
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
 }
 
 .email_subject,
 .email_message {
-    width: 100%; /* 入力フィールドとテキストエリアを幅いっぱいに */
-    padding: 10px; /* 内側の余白 */
-    margin-bottom: 15px; /* フィールド間の余白 */
-    border: 1px solid #ccc; /* フィールドのボーダー */
-    border-radius: 4px; /* ボーダーを角丸に */
-    box-sizing: border-box; /* パディングを含めて幅を計算 */
-    font-size: 16px; /* 入力フィールドの文字サイズ */
-    color: #333; /* 入力フィールドの文字色 */
-    background-color: #fff; /* 入力フィールドの背景色 */
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #333;
+    background-color: #fff;
 }
 
 .email_message  {
-    height: 150px; /* テキストエリアの高さ */
-    resize: vertical; /* 垂直方向のみサイズ変更可能 */
+    height: 150px;
+    resize: vertical;
 }
 
 .email_button {
-    width: 100%; /* ボタンの幅をフォームいっぱいに */
-    padding: 12px; /* ボタンの内側の余白 */
-    font-size: 16px; /* ボタンの文字サイズ */
-    color: #fff; /* ボタンの文字色 */
-    background-color: #007bff; /* ボタンの背景色 */
-    border: none; /* ボーダーを削除 */
-    border-radius: 4px; /* ボタンの角を丸く */
-    cursor: pointer; /* ボタンにカーソルを表示 */
-    transition: background-color 0.3s ease; /* 背景色のトランジション */
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .email_button {
-    background-color: #0056b3; /* ホバー時のボタン背景色 */
+    background-color: #0056b3;
 }

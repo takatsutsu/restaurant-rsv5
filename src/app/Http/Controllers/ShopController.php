@@ -5,12 +5,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Shop_InfoRequest;
 use App\Models\Shop;
-use App\Models\Favorite;
 use App\Models\Genre;
 use App\Models\Area;
 use Illuminate\Http\Request;
-use Carbon\Carbon;
-use Facade\Ignition\QueryRecorder\Query;
 use Illuminate\Support\Facades\Auth;
 
 

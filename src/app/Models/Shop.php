@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Shop extends Model
 {
@@ -36,5 +37,9 @@ class Shop extends Model
         return $this->hasMany("App\Models\Favorite");
     }
 
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'shop_id', 'id');
+    }
 
 }

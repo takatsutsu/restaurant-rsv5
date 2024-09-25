@@ -1,13 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Model\Reservation;
-use Illuminate\Database\Eloquent\Model\Favorite;
-
 
 class My_pageController extends Controller
 {

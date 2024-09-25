@@ -18,7 +18,6 @@
 
     <form class="shop_edit_form" action="shop_update" method="POST" novalidate>
         @csrf
-        <input type="hidden" name="shop_id" value="{{ $shop->id }}" />
 
         <div class="shop_edit_group">
             <label for="shop_name">店舗名</label>

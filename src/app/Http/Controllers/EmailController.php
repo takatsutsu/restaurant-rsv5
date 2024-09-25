@@ -3,14 +3,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Favorite;
 use App\Models\Shop;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\NoticeEmail;
-use PharIo\Manifest\Email;
 use App\Http\Requests\EmailRequest;
 
 class EmailController extends Controller

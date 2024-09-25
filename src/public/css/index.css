@@ -59,17 +59,17 @@
     .shop_search-form {
         margin-bottom: 20px;
         display: flex;
-        flex-direction: column; /* 縦並びにする */
-        align-items: flex-start; /* 左寄せにする */
+        flex-direction: column;
+        align-items: flex-start;
         gap: 10px;
     }
 
     .shop_search-field {
-        width: 100%; /* フィールドの幅を100%に広げる */
+        width: 100%;
     }
 
     .shop_search-form .btn {
-        align-self: stretch; /* ボタンをフル幅にする場合 */
-        margin-left: 0; /* 左のマージンを削除 */
+        align-self: stretch;
+        margin-left: 0;
     }
 }

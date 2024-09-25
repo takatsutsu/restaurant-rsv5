@@ -2,14 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\Shop_AdminRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
-use App\Models\Shop;
 use Illuminate\Auth\Events\Registered;
-use Carbon\Carbon;
 
 
 class RegisterController extends Controller
