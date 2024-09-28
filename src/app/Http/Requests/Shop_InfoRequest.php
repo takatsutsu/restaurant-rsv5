@@ -25,7 +25,7 @@ class Shop_InfoRequest extends FormRequest
     {
         return [
             'shop_name'=> 'required|string|max:50',
-            'shop_explanation' => 'required|string|max:200',
+            'shop_explanation' => 'required|string|max:250',
             'genre_id' => 'required',
             'area_id' => 'required',
         ];
@@ -37,7 +37,7 @@ class Shop_InfoRequest extends FormRequest
             'shop_name.required' => '店舗名は必須です。',
             'shop_name.max' => '店舗名は最大50文字までです。',
             'shop_explanation.required' => '店舗説明は必須です。',
-            'shop_explanation.max' => '店舗説明は最大200文字までです。',
+            'shop_explanation.max' => '店舗説明は最大250文字までです。',
             'genre_id.required' => 'ジャンルは必須です。',
             'area_id.required' => 'エリアは必須です。',
         ];

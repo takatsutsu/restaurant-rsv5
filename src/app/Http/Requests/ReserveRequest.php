@@ -3,7 +3,6 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
 use Carbon\Carbon;
 
 
@@ -52,7 +51,6 @@ class ReserveRequest extends FormRequest
             $reserveDate = $this->input('reserve_date');
             $reserveTime = $this->input('reserve_time');
             $reserveDateTime = Carbon::parse("$reserveDate $reserveTime");
-            $now = Carbon::now();
 
             if ($reserveDateTime->isPast()) {
                 $validator->errors()->add('reserve_time', '過去の日時は選択できません。');

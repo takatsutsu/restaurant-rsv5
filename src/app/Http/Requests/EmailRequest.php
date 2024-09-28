@@ -35,7 +35,7 @@ class EmailRequest extends FormRequest
             'email_subject.required' => '店舗名は必須です。',
             'email_subject.max' => '店舗名は最大50文字までです。',
             'email_message.required' => 'メッセージは必須です。',
-            'email_message.max' => '店舗説明は最大200文字までです。',
+            'email_message.max' => '店舗説明は最大250文字までです。',
         ];
     }
 }

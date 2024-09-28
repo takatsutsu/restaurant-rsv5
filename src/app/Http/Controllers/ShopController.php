@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 
 class ShopController extends Controller
 {
+    //店舗一覧画面の表示
     public function index()
     {
         $user_id = Auth::id();
@@ -37,7 +38,7 @@ class ShopController extends Controller
 
         return view('index', compact('shops','genres', 'areas', 'user'));
     }
-
+    //検索後店舗一覧
     public function search(Request $request)
     {
         $userId = Auth::id();
@@ -78,13 +79,13 @@ class ShopController extends Controller
         return view('index', compact('shops', 'genres', 'areas', 'search_area','search_genre', 'search_shop', 'user'));
     }
 
-
+    //店舗詳細画面の表示
     public function detail($id)
     {
         $shop = Shop::with('area', 'genre')->findOrFail($id);
         return view('detail', compact('shop'));
     }
-
+    //店舗情報の変更画面表示
     public function shop_edit()
     {
         $user = Auth::user();
@@ -98,7 +99,7 @@ class ShopController extends Controller
         $shop = Shop::where('id', $user->shop_id)->firstOrFail();
         return view('shop_edit', compact('shop', 'genres', 'areas'));
     }
-
+    //店舗情報の変更処理
     public function shop_update(shop_InfoRequest $request)
     {
         $user = Auth::user();
@@ -121,7 +122,7 @@ class ShopController extends Controller
         return redirect('/')->with('message', '店舗情報を更新しました。');
         }
     }
-
+    //店舗情報更新画面の表示
     public function shop_form()
     {
         $user = Auth::user();
@@ -134,7 +135,7 @@ class ShopController extends Controller
         $areas = Area::all();
         return view('shop_form', compact('genres', 'areas'));
     }
-
+    //店舗情報更新の処理
     public function shop_store(shop_InfoRequest $request)
     {
         $user = Auth::user();
