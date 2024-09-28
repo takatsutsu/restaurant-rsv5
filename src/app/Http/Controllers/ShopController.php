@@ -39,7 +39,7 @@ class ShopController extends Controller
         return view('index', compact('shops','genres', 'areas', 'user'));
     }
     //検索後店舗一覧
-    public function search(Request $request)
+    public function shop_search(Request $request)
     {
         $userId = Auth::id();
         $genres = Genre::all();
@@ -123,7 +123,7 @@ class ShopController extends Controller
         }
     }
     //店舗情報更新画面の表示
-    public function shop_form()
+    public function shop_new()
     {
         $user = Auth::user();
 
@@ -133,7 +133,7 @@ class ShopController extends Controller
         }
         $genres = Genre::all();
         $areas = Area::all();
-        return view('shop_form', compact('genres', 'areas'));
+        return view('shop_new', compact('genres', 'areas'));
     }
     //店舗情報更新の処理
     public function shop_store(shop_InfoRequest $request)

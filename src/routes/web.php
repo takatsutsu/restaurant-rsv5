@@ -1,18 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\ReserveController;
 use App\Http\Controllers\My_pageController;
-use App\Models\Favorite;
 use App\Http\Controllers\LoginController;
-use App\Http\Requests\RegisterRequest;
 use App\Http\Controllers\RegisterController;
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Support\Facades\Auth;
-use PharIo\Manifest\Author;
 use Illuminate\Http\Request;
 use App\Http\Controllers\EmailController;
 
@@ -31,14 +25,14 @@ use App\Http\Controllers\EmailController;
 // Route::get('/user_complete', [AuthController::class, 'user_complete']);
 //店舗一覧
 Route::get('/', [ShopController::class, 'index']);
-//店舗詳細画面　予約入力
+//店舗詳細画面予約入力
 Route::get('/detail/{id}', [ShopController::class, 'detail']);
 //店舗検索
-Route::post('/search', [ShopController::class, 'search']);
+Route::post('/shop_search', [ShopController::class, 'shop_search']);
 //ログイン画面
 Route::post('/login', [LoginController::class, 'login']);
 //一般ユーザ登録画面
-Route::post('/register', [RegisterController::class, 'register']);
+Route::post('/register_store', [RegisterController::class, 'register_store']);
 
 
 Route::middleware('auth')->group(function () {
@@ -66,13 +60,13 @@ Route::middleware('auth')->group(function () {
         //お知らせメール送信処理
         Route::post('/send_email', [EmailController::class, 'send_email']);
         //店舗管理者の登録ページ表示
-        Route::get('/shop_admin_form', [RegisterController::class, 'shop_admin_form']);
-        Route::post('/shop_admin_register', [RegisterController::class, 'shop_admin_register']);
+        Route::get('/shop_admin_register', [RegisterController::class, 'shop_admin_register']);
+        Route::post('/shop_admin_store', [RegisterController::class, 'shop_admin_store']);
         //店舗情報の更新ページ表示
         Route::get('/shop_edit', [ShopController::class, 'shop_edit']);
         Route::post('/shop_update', [ShopController::class, 'shop_update']);
         //店舗情報の登録ページ表示
-        Route::get('/shop_form', [ShopController::class, 'shop_form']);
+        Route::get('/shop_new', [ShopController::class, 'shop_new']);
         Route::post('/shop_store', [ShopController::class, 'shop_store']);
         //店舗別予約一覧ページ表示
         Route::get('/shop_reserve', [ReserveController::class, 'shop_reserve']);
@@ -82,17 +76,17 @@ Route::middleware('auth')->group(function () {
         Route::get('/reserve_match/{id}', [ReserveController::class, 'reserve_match']);
 
     });
-    // メール認証が必要なユーザー向けルート
+    //メール認証未完了の場合のルート
     Route::get('/email/verify', function () {
         return view('auth.user_thanks');
     })->name('verification.notice');
-
+    //会員登録時認証メール送信処理
     Route::get('/user_thanks',
         function () {
             return view('auth.user_thanks');
         })->name('registration.success');
 
-
+    //会員登録時認証メール再送信
     Route::post('/email/verification-notification', function (Request $request) {
         $request->user()->sendEmailVerificationNotification();
 

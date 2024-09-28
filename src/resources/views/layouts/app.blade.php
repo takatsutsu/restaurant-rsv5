@@ -61,7 +61,7 @@
                                 </form>
                             </li>
                             <li>
-                                <form class="form" action="/shop_admin_form" method="get">
+                                <form class="form" action="/shop_admin_register" method="get">
                                     @csrf
                                     <button class="menu-content_button">ShopManager-Registration</button>
                                 </form>
@@ -89,7 +89,7 @@
                             </li>
                             @else
                             <li>
-                                <form class="form" action="/shop_form" method="get">
+                                <form class="form" action="/shop_new" method="get">
                                     @csrf
                                     <button class="menu-content_button">ShopContents-New</button>
                                 </form>

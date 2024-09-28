@@ -11,7 +11,8 @@ use Illuminate\Auth\Events\Registered;
 
 class RegisterController extends Controller
 {
-    public function register(RegisterRequest $request)
+    //一般会員登録処理
+    public function register_store(RegisterRequest $request)
     {
         $user = User::create([
             'name' => $request->name,
@@ -27,8 +28,8 @@ class RegisterController extends Controller
         return redirect()->route('registration.success');
     }
 
-
-    public function shop_admin_form()
+    //店舗管理会員登録ページ
+    public function shop_admin_register()
     {
         if (Auth::user()->role !== 'admin' || Auth::user()->email_verified_at === null) {
             return redirect('/')->with('message', 'アクセスが許可されていません。');
@@ -37,7 +38,7 @@ class RegisterController extends Controller
 
     }
 
-    public function shop_admin_register(Shop_AdminRequest $request)
+    public function shop_admin_store(Shop_AdminRequest $request)
     {
         if (Auth::user()->role !== 'admin' || Auth::user()->email_verified_at === null) {
             return redirect('/')->with('message', 'アクセスが許可されていません。');
