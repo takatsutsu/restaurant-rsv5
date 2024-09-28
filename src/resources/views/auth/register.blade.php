@@ -7,7 +7,7 @@
 
 @section('content')
 <div class="main_head">
-    <h2 class="small-tittle">アカウント登録画面</h2>
+    <h2 class="small-tittle">会員登録画面</h2>
 </div>
 <form class="form" action="/register_store" method="post">
     @csrf
