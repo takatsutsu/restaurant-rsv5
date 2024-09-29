@@ -1,12 +1,7 @@
 # restaurant-rsv1
-# restaurant-rsv1
-# restaurant-rsv1
-# restaurant-rsv1
-# restaurant-rsv1
-# restaurant-rsv1
 
 
-##README 2024/06/08 修正
+##README 2024/09/28 修正
 
 ## アプリケーション名
 
@@ -17,8 +12,7 @@
 
 ## 作成した目的
 
-各社員が勤務開始、休憩開始、休憩終了、勤務終了ボタンを押下。  
-社員毎の勤務時間を日付別に管理できるようにする
+飲食店の情報HPを構築し、お店情報を掲載。
 
 ## アプリケーション URL
 
@@ -67,7 +61,7 @@ $ `cd coachtech/laravel`
 
 $ `git clone git@github.com:coachtech-material/laravel-docker-template.git`
 
-$ `mv laravel-docker-template [attendannce1]`  
+$ `mv laravel-docker-template [restaurant-rsv1]`  
 ※[attendannce1]は任意のフォルダ名
 
 DockerDesktop アプリを立ち上げる

@@ -78,12 +78,181 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert($param);
 
         $param = [
-            'name' => '香（管理者）',
+            'name' => '志摩屋（管理者）',
             'email' => 'shop0005@gmail.com',
             'email_verified_at' => $now,
             'password' => bcrypt('password'),
             'role' => 'shop-admin',
             'shop_id' => 5,
+            'created_at' => $now,
+            'updated_at' => $now,
+        ];
+        DB::table('users')->insert($param);
+
+        $param = [
+            'name' => '香（管理者）',
+            'email' => 'shop0006@gmail.com',
+            'email_verified_at' => $now,
+            'password' => bcrypt('password'),
+            'role' => 'shop-admin',
+            'shop_id' => 6,
+            'created_at' => $now,
+            'updated_at' => $now,
+        ];
+        DB::table('users')->insert($param);
+
+        $param = [
+            'name' => 'JJ（管理者）',
+            'email' => 'shop0007@gmail.com',
+            'email_verified_at' => $now,
+            'password' => bcrypt('password'),
+            'role' => 'shop-admin',
+            'shop_id' => 7,
+            'created_at' => $now,
+            'updated_at' => $now,
+        ];
+        DB::table('users')->insert($param);
+
+        $param = [
+            'name' => 'らーめん極み（管理者）',
+            'email' => 'shop0008@gmail.com',
+            'email_verified_at' => $now,
+            'password' => bcrypt('password'),
+            'role' => 'shop-admin',
+            'shop_id' => 8,
+            'created_at' => $now,
+            'updated_at' => $now,
+        ];
+        DB::table('users')->insert($param);
+
+
+        $param = [
+            'name' => '鳥雨(管理者）',
+            'email' => 'shop0009@gmail.com',
+            'email_verified_at' => $now,
+            'password' => bcrypt('password'),
+            'role' => 'shop-admin',
+            'shop_id' => 9,
+            'created_at' => $now,
+            'updated_at' => $now,
+            ];
+        DB::table('users')->insert($param);
+
+        $param = [
+            'name' => '築地色合(管理者）',
+            'email' => 'shop0010@gmail.com',
+            'email_verified_at' => $now,
+            'password' => bcrypt('password'),
+            'role' => 'shop-admin',
+            'shop_id' => 10,
+            'created_at' => $now,
+            'updated_at' => $now,
+        ];
+        DB::table('users')->insert($param);
+
+        $param = [
+            'name' => '晴海(管理者）',
+            'email' => 'shop0011@gmail.com',
+            'email_verified_at' => $now,
+            'password' => bcrypt('password'),
+            'role' => 'shop-admin',
+            'shop_id' => 11,
+            'created_at' => $now,
+            'updated_at' => $now,
+        ];
+        DB::table('users')->insert($param);
+
+        $param = [
+            'name' => '三子(管理者）',
+            'email' => 'shop0012@gmail.com',
+            'email_verified_at' => $now,
+            'password' => bcrypt('password'),
+            'role' => 'shop-admin',
+            'shop_id' => 12,
+            'created_at' => $now,
+            'updated_at' => $now,
+        ];
+        DB::table('users')->insert($param);
+
+        $param = [
+            'name' => '八戒(管理者）',
+            'email' => 'shop0013@gmail.com',
+            'email_verified_at' => $now,
+            'password' => bcrypt('password'),
+            'role' => 'shop-admin',
+            'shop_id' => 13,
+            'created_at' => $now,
+            'updated_at' => $now,
+        ];
+        DB::table('users')->insert($param);
+
+        $param = [
+            'name' => '福助(管理者）',
+            'email' => 'shop0014@gmail.com',
+            'email_verified_at' => $now,
+            'password' => bcrypt('password'),
+            'role' => 'shop-admin',
+            'shop_id' => 14,
+            'created_at' => $now,
+            'updated_at' => $now,
+        ];
+        DB::table('users')->insert($param);
+
+        $param = [
+            'name' => 'ラー北(管理者）',
+            'email' => 'shop0015@gmail.com',
+            'email_verified_at' => $now,
+            'password' => bcrypt('password'),
+            'role' => 'shop-admin',
+            'shop_id' => 15,
+            'created_at' => $now,
+            'updated_at' => $now,
+        ];
+        DB::table('users')->insert($param);
+
+        $param = [
+            'name' => '翔(管理者）',
+            'email' => 'shop0016@gmail.com',
+            'email_verified_at' => $now,
+            'password' => bcrypt('password'),
+            'role' => 'shop-admin',
+            'shop_id' => 16,
+            'created_at' => $now,
+            'updated_at' => $now,
+        ];
+        DB::table('users')->insert($param);
+
+        $param = [
+            'name' => '漆(管理者）',
+            'email' => 'shop0017@gmail.com',
+            'email_verified_at' => $now,
+            'password' => bcrypt('password'),
+            'role' => 'shop-admin',
+            'shop_id' => 17,
+            'created_at' => $now,
+            'updated_at' => $now,
+        ];
+        DB::table('users')->insert($param);
+
+        $param = [
+            'name' => '経緯(管理者）',
+            'email' => 'shop0018@gmail.com',
+            'email_verified_at' => $now,
+            'password' => bcrypt('password'),
+            'role' => 'shop-admin',
+            'shop_id' => 18,
+            'created_at' => $now,
+            'updated_at' => $now,
+        ];
+        DB::table('users')->insert($param);
+
+        $param = [
+            'name' => 'THE TOOL(管理者）',
+            'email' => 'shop0019@gmail.com',
+            'email_verified_at' => $now,
+            'password' => bcrypt('password'),
+            'role' => 'shop-admin',
+            'shop_id' => 19,
             'created_at' => $now,
             'updated_at' => $now,
         ];
