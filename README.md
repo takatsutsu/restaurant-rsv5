@@ -5,34 +5,64 @@
 
 ## アプリケーション名
 
-勤怠管理システム
-![alt text](<スクリーンショット 2024-05-12 21.53.25.png>)
+飲食店予約管理システム
+![alt text](<スクリーンショット 2024-09-30 9.39.45.png>)
+![alt text](<スクリーンショット 2024-09-30 9.20.02.png>)
+![alt text](<スクリーンショット 2024-09-30 9.20.39.png>)
+![alt text](<スクリーンショット 2024-09-30 9.20.22.png>)
+![alt text](<スクリーンショット 2024-09-30 9.21.29.png>)
+![alt text](<スクリーンショット 2024-09-30 9.21.51.png>)
+![alt text](<スクリーンショット 2024-09-30 9.24.07.png>)
 
-![alt text](<スクリーンショット 2024-05-16 3.16.32.png>)
 
 ## 作成した目的
 
-飲食店の情報HPを構築し、お店情報を掲載。
+飲食店の情報HPを構築し、お店情報を掲載。ユーザが予約、お気に入り登録できるようにする
 
 ## アプリケーション URL
 
-- 打刻画面 http://localhost/
-- 日付別集計画面 http://localhost/sumsearch
-- アカウント（社員）登録画面 http://localhost/register
+- 店舗一覧ページ http://localhost/
+
+## レポジトリー
+https://github.com/takatsutsu/restaurant-rsv1.git
 
 ## 他のレポジトリー
 
 ## 機能一覧
 
-- アカウント（社員）登録
+- 会員情報登録
 - ログイン
 - ログアウト
-- 勤務開始
-- 勤務終了
-- 休憩開始
-- 休憩終了
-- 日付別集計画面
-- ページネーション
+- ユーザー情報取得
+- ユーザー飲食店お気に入り一覧取得
+- ユーザー飲食店予約情報取得
+- 飲食店一覧取得
+- 飲食店詳細取得
+- 飲食店お気に入り追加
+- 飲食店お気に入り削除
+- 飲食店予約情報追加
+- 飲食店予約情
+- エリアで検索する
+- ジャンルで検索する
+- 店名で検索する
+
+##  追加機能
+- 予約変更機能
+- バリデーション
+- レスポンシブデザイン
+- 管理画面
+- ストレージ
+- 認証
+- メール送信
+- リマインダー
+- QRコード
+- 環境の切り分け
+
+##  　追加機能（未実施項目）
+- 評価機能
+- 決済機能
+- AWS
+
 
 ## 使用技術(実行環境)
 
@@ -42,16 +72,17 @@
 - phpmyadmin 5.2.1
 
 ## テーブル設計
-
-![alt text](users.png)
-
-![alt text](attendees.png)
-
-![alt text](breaktimes.png)
+![alt text](<スクリーンショット 2024-09-30 10.24.41-1.png>)
+![alt text](<スクリーンショット 2024-09-30 10.25.23.png>)
+![alt text](<スクリーンショット 2024-09-30 10.25.35.png>)
+![alt text](<スクリーンショット 2024-09-30 10.26.04.png>)
+![alt text](<スクリーンショット 2024-09-30 10.26.14.png>)
+![alt text](<スクリーンショット 2024-09-30 10.26.27-1.png>)
 
 ## ER 図
 
-![alt text](ER図-attendance1.png)
+![alt text](coachtech上級案件.drawio.png)
+
 
 ## 環境構築
 
@@ -64,9 +95,6 @@ $ `git clone git@github.com:coachtech-material/laravel-docker-template.git`
 $ `mv laravel-docker-template [restaurant-rsv1]`  
 ※[attendannce1]は任意のフォルダ名
 
-DockerDesktop アプリを立ち上げる
-
-$ `docker-compose up -d --build`
 
 開発の履歴を残すために、個人個人のリモートリポジトリの url を変更します。
 [attendannce1]名のリポジトリ―を GITHUB にて作成
@@ -80,32 +108,36 @@ $ `git push origin main`
 
 **LARAVEL 環境構築**
 
-①$`docker-compose up -d --build`
-②$`code .`
 
-③$ `docker-compose exec php bash`
+$ `cd [restaurant-rsv1]
+$ `docker-compose up -d --build`
+$ `code .`
 
-④$ `composer install`
+DockerDesktop アプリを立ち上げる
+コンテナに[restaurant-rsv1]が存在していればOK
+
+$ `docker-compose exec php bash`
+
+$ `composer install`
   $ `exit`
-
-⑤ 「.env.example」ファイルを 「.env」ファイルに命名を変更  
+ 「.env.example」ファイルを 「.env」ファイルに命名を変更  
   $ `cp .env.example .env`
   $ `exit`
 
-　テスト環境とする場合はテスト環境用.env.testとしてコピー
-　　　`cp .env.example .env.test`　
-　　　.env.testの設定を変更　　
-     
-　　　`cp .env.test .env` 
+  テスト環境とする場合はテスト環境用.env.testとしてコピー
+    `cp .env.example .env.test`　
+    .env.testの設定を変更　　
+
+   `cp .env.test .env` 
     最終 .envを置き換える
 
   本番環境についても、.env.prod として作成しておく
 
   `cp .env.example .env.prod`　
-　　　.env.prodの設定を変更　　
-     
-　　　`cp .env.prod .env` 
-    最終 .envを置き換える
+   .env.prodの設定を変更　　
+
+  `cp .env.prod .env`
+     .envを置き換える
 
 ⑥ .env (.env.test   .env.prod )に以下の環境変数を追加
 
@@ -128,9 +160,38 @@ $ `docker-compose exec php bash`
 
 $ `php artisan migrate`
 
-⑨ シーディングの実行（アカウント(社員)マスタのみ）  
+⑨ シーディングの実行 
 $ `docker-compose exec php bash`
 
 $ `php artisan db:seed`
 
-ログイン初期パスワードは全て password
+シーダーで作成するデータ
+   １.users
+     管理者          admin@gmail.com
+     店舗管理者会員   19ユーザを登録
+                    shop0001@gmail.comから  shop0019@gmail.com
+     一般会員        17ユーザを登録
+                   ログインID（メールアドレス）
+                   aa@gmail.com
+                   bb@gmail.com
+                   cc@gmail.com
+                       ・
+                       ・
+                       ・
+
+
+      ログイン初期パスワードは全て password
+
+  　2.shops
+     店舗管理者会員　と連動連動して19店舗を登録
+    
+    ３.areas
+      全国都道府県を登録
+    4.genres
+      1 イタリアン
+      2 ラーメン
+      3 居酒屋
+      4 寿司
+      5 焼肉
+
+
