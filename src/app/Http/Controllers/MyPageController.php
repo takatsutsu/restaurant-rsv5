@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 
-class My_pageController extends Controller
+class MyPageController extends Controller
 {
     public function my_page()
     {

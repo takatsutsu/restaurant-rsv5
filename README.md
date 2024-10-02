@@ -80,8 +80,8 @@ https://github.com/takatsutsu/restaurant-rsv1.git
 ![alt text](<スクリーンショット 2024-09-30 10.26.27-1.png>)
 
 ## ER 図
+![alt text](coachtech上級案件.drawio-1.png)
 
-![alt text](coachtech上級案件.drawio.png)
 
 
 ## 環境構築

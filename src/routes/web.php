@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\ReserveController;
-use App\Http\Controllers\My_pageController;
+use App\Http\Controllers\MyPageController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Http\Request;
@@ -50,7 +50,7 @@ Route::middleware('auth')->group(function () {
         //お気に入り削除（マイページから）
         Route::get('/my_favo_delete/{id}', [FavoriteController::class, 'my_favo_delete']);
         //マイページ表示
-        Route::get('/my_page', [My_pageController::class, 'my_page']);
+        Route::get('/my_page', [MyPageController::class, 'my_page']);
         //予約情報変更ページ表示
         Route::get('/reserve_edit/{id}', [ReserveController::class, 'reserve_edit']);
         //予約情報変更処理
