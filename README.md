@@ -90,14 +90,14 @@ https://github.com/takatsutsu/restaurant-rsv1.git
 
 ●$ `cd coachtech/laravel`
 
-●$ `git clone git@github.com:coachtech-material/laravel-docker-template.git`
+●$ `git clone https://github.com/takatsutsu/restaurant-rsv1.git [[restaurant-rsv1]`
 
 ●$ `mv laravel-docker-template [restaurant-rsv1]`  
-※[attendannce1]は任意のフォルダ名
+※[restaurant-rsv1]は任意のフォルダ名
 
 
 ●開発の履歴を残すために、個人個人のリモートリポジトリの url を変更します。
-●[attendannce1]名のリポジトリ―を GITHUB にて作成
+●[restaurant-rsv1]名のリポジトリ―を GITHUB にて作成
 
 ●ターミナルより以下コマンドで　ローカルリポジトリのデータをリモートリポジトリに反映  
 　　$ `git add .`
@@ -148,14 +148,16 @@ $ `php artisan migrate`
 
 ● シーディングの実行 
 $ `docker-compose exec php bash`
-
-
+ 
+$ `php artisan db:seed`
+　　 やり直す場合は
+  　$ `php artisan migrate:fresh` を先に行って
 $ `php artisan db:seed`
 
 シーダーで作成するデータ
    １.users
      管理者          admin@gmail.com
-     店舗管理者会員   19ユーザを登録
+     店舗管理者会員   20ユーザを登録
                     shop0001@gmail.comから  shop0019@gmail.com
      一般会員        17ユーザを登録
                    ログインID（メールアドレス）
@@ -170,7 +172,7 @@ $ `php artisan db:seed`
       ログイン初期パスワードは全て password
 
     2.shops
-     店舗管理者会員　と連動連動して19店舗を登録
+     店舗管理者会員　と連動連動して20店舗を登録
 
     ３.areas
       全国都道府県を登録

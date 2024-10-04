@@ -17,7 +17,7 @@
     width: 30%;
 }
 
-.my_favorites { /* 修正ポイント */
+.my_favorites {
     width: 65%;
 }
 }
@@ -28,10 +28,6 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* .card-img-top {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-} */
 
 .my_rese_card-body {
     background-color: #ffffff;
@@ -47,16 +43,15 @@
     font-size: 1rem;
 }
 
-.my_rese_card-btn {
-    float: right;
-    background-color: #ff6b6b;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    padding: 10px;
-    cursor: pointer;
-    margin-left: 10px;
+
+.my_rese_qr {
+    text-align: right;
 }
+
+.my_rese_update{
+    text-align: left;
+}
+
 
 .my_favo_container {
     display: grid;
