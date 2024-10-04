@@ -223,7 +223,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert($param);
 
         $param = [
-            'name' => '漆(管理者）',
+            'name' => '経緯(管理者）',
             'email' => 'shop0017@gmail.com',
             'email_verified_at' => $now,
             'password' => bcrypt('password'),
@@ -235,7 +235,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert($param);
 
         $param = [
-            'name' => '経緯(管理者）',
+            'name' => '漆(管理者）',
             'email' => 'shop0018@gmail.com',
             'email_verified_at' => $now,
             'password' => bcrypt('password'),
@@ -247,12 +247,24 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert($param);
 
         $param = [
-            'name' => 'THE TOOL(管理者）',
+            'name' => '経緯(管理者）',
             'email' => 'shop0019@gmail.com',
             'email_verified_at' => $now,
             'password' => bcrypt('password'),
             'role' => 'shop-admin',
             'shop_id' => 19,
+            'created_at' => $now,
+            'updated_at' => $now,
+        ];
+        DB::table('users')->insert($param);
+
+        $param = [
+            'name' => 'THE TOOL(管理者）',
+            'email' => 'shop0020@gmail.com',
+            'email_verified_at' => $now,
+            'password' => bcrypt('password'),
+            'role' => 'shop-admin',
+            'shop_id' => 20,
             'created_at' => $now,
             'updated_at' => $now,
         ];

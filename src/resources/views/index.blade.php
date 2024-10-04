@@ -19,10 +19,10 @@
         <p class="shop_user-name">{{ $user->name }}様</p>
         @endif
         <div class="shop_search-form">
-            <form action="/search" method="post">
+            <form action="/shop_search" method="post">
                 @csrf
                 <select name="search_area" class="shop_search-field">
-                    <option value="">エリアを選択</option>
+                    <option value="">All area</option>
                     <!-- エリアのオプションを追加 -->
                     @foreach($areas as $area)
                     <option value="{{ $area->id }}" {{ old('search_area', $search_area ?? '') == $area->id ? 'selected' : '' }}>
@@ -31,7 +31,7 @@
                     @endforeach
                 </select>
                 <select name="search_genre" class="shop_search-field">
-                    <option value="">ジャンルを選択</option>
+                    <option value="">All genre</option>
                     <!-- ジャンルのオプションを追加 -->
                     @foreach($genres as $genre)
                     <option value="{{ $genre->id }}" {{ old('search_genre', $search_genre ?? '') == $genre->id ? 'selected' : '' }}>
@@ -39,7 +39,7 @@
                     </option>
                     @endforeach
                 </select>
-                <input type="text" name="search_shop" class="shop_search-field" placeholder="店舗名を入力" value="{{ old('search_shop', $search_shop ?? '') }}">
+                <input type="text" name="search_shop" class="shop_search-field" placeholder="店舗名を検索" value="{{ old('search_shop', $search_shop ?? '') }}">
                 <button type="submit" class="btn btn-primary">検索</button>
             </form>
         </div>
