@@ -87,14 +87,6 @@
                                     <button class="menu-content_button">ShopContents-Edit</button>
                                 </form>
                             </li>
-                            @else
-                            <li>
-                                <form class="form" action="/shop_new" method="get">
-                                    @csrf
-                                    <button class="menu-content_button">ShopContents-New</button>
-                                </form>
-                            </li>
-                            @endif
                             <li>
                                 <form class="form" action="/email_form" method="get">
                                     @csrf
@@ -107,6 +99,14 @@
                                     <button class="menu-content_button">Reservation-Info</button>
                                 </form>
                             </li>
+                            @else
+                            <li>
+                                <form class="form" action="/shop_new" method="get">
+                                    @csrf
+                                    <button class="menu-content_button">ShopContents-New</button>
+                                </form>
+                            </li>
+                            @endif
                             @endif
 
                             @else
