@@ -90,9 +90,10 @@ https://github.com/takatsutsu/restaurant-rsv1.git
 
 **GITHUB からのプロジェクトフォルダ取得**
 
-- `$ cd coachtech/laravel`
+- `$ cd coachtech/laravel`  
+   ※coachtech/laravel は環境によって異なる。
 - `$ git clone https://github.com/takatsutsu/restaurant-rsv1.git [restaurant-rsv1]`  
-  ※[restaurant-rsv1]は任意のフォルダ
+   ※[restaurant-rsv1]は任意のフォルダ
 
 **開発の履歴を残すために、個人個人のリモートリポジトリの url を変更。**
 
@@ -168,7 +169,7 @@ DB_PASSWORD=laravel_pass
    2.shops  
   　　店舗管理者会員と連動連動して 20 店舗を登録  
    3.areas  
-   全国都道府県を登録  
+  　　全国都道府県を登録  
   4.genres  
   　　 1 イタリアン  
   　　 2 ラーメン  
@@ -176,7 +177,7 @@ DB_PASSWORD=laravel_pass
   　　 4 寿司  
   　　 5 焼肉
 
-★ レストラン画像を移動
+★ レストラン画像を複写
 
 - プロジェクトフォルダ[restaurant-rsv1]直下の以下の画像ファイルを
   　　[restaurant-rsv1]/src/storage/app/public/にコピーする。  
