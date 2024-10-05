@@ -144,75 +144,37 @@ DB_PASSWORD=laravel_pass
 - `$ docker-compose exec php bash`※
 - `$ php artisan migrate:fresh`※
 - `$ php artisan db:seed`※  
-  ※ シーディングをやり直す場合は※を順番に行う
+   ※ シーディングをやり直す場合は※を順番に行う
 
-シーダーで作成するデータ  
- １.users  
- ① 管理者 admin@gmail.com  
- ② 店舗管理者会員 20 ユーザを登録  
- 　　　　　　shop0001@gmail.comから  
- 　　　　　　shop0002@gmail.com  
- 　　　　　　　　　　・  
- 　　　　　　　　　　・  
- 　　　　　　　　　　・  
- 　　　　　　shop0020@gmail.com  
- ③ 一般会員 17 ユーザを登録  
- 　　　　　　aa@gmail.com  
- 　　　　　　bb@gmail.com  
- 　　　　　　cc@gmail.com  
- 　　　　　　　　　　・  
- 　　　　　　　　　　・  
- 　　　　　　　　　　・  
- 　　　　　　qq@gmail.com  
- 　　　※ログイン初期パスワードは全て password  
- 2.shops  
- 　　店舗管理者会員と連動連動して 20 店舗を登録  
- ３.areas  
- 全国都道府県を登録  
- 4.genres  
- 　　 1 イタリアン  
- 　　 2 ラーメン  
- 　　 3 居酒屋  
- 　　 4 寿司  
- 　　 5 焼肉
-
-★ シーディングの実行
-
-- `$ docker-compose exec php bash`
-- `$ php artisan migrate:fresh`
-- `$ php artisan db:seed`  
-   ※ シーディングをやり直す場合は
-  - `＄php artisan migrate:fresh` を行って
-  - `$ php artisan db:seed`を実行  
-    シーダーで作成するデータ  
-     １.users  
-     ① 管理者 admin@gmail.com  
-     ② 店舗管理者会員 20 ユーザを登録  
-     　　　　　　shop0001@gmail.comから  
-     　　　　　　shop0002@gmail.com  
-     　　　　　　　　　　・  
-     　　　　　　　　　　・  
-     　　　　　　　　　　・  
-     　　　　　　shop0020@gmail.com  
-     ③ 一般会員 17 ユーザを登録  
-     　　　　　　aa@gmail.com  
-     　　　　　　bb@gmail.com  
-     　　　　　　cc@gmail.com  
-     　　　　　　　　　　・  
-     　　　　　　　　　　・  
-     　　　　　　　　　　・  
-     　　　　　　qq@gmail.com  
-     　　　※ログイン初期パスワードは全て password  
-     2.shops  
-     　　店舗管理者会員と連動連動して 20 店舗を登録  
-     ３.areas  
-     全国都道府県を登録  
-     4.genres  
-     　　 1 イタリアン  
-     　　 2 ラーメン  
-     　　 3 居酒屋  
-     　　 4 寿司  
-     　　 5 焼肉
+  シーダーで作成するデータ  
+   １.users  
+   ① 管理者 admin@gmail.com  
+   ② 店舗管理者会員 20 ユーザを登録  
+  　　　　　　shop0001@gmail.comから  
+  　　　　　　shop0002@gmail.com  
+  　　　　　　　　　　・  
+  　　　　　　　　　　・  
+  　　　　　　　　　　・  
+  　　　　　　shop0020@gmail.com  
+   ③ 一般会員 17 ユーザを登録  
+  　　　　　　aa@gmail.com  
+  　　　　　　bb@gmail.com  
+  　　　　　　cc@gmail.com  
+  　　　　　　　　　　・  
+  　　　　　　　　　　・  
+  　　　　　　　　　　・  
+  　　　　　　qq@gmail.com  
+  　　　※ログイン初期パスワードは全て password  
+   2.shops  
+  　　店舗管理者会員と連動連動して 20 店舗を登録  
+   3.areas  
+   全国都道府県を登録  
+  4.genres  
+  　　 1 イタリアン  
+  　　 2 ラーメン  
+  　　 3 居酒屋  
+  　　 4 寿司  
+  　　 5 焼肉
 
 ★ レストラン画像を移動
 
