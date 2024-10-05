@@ -21,7 +21,13 @@
 
 ## アプリケーション URL
 
-- 店舗一覧ページ http://localhost/
+- 店舗一覧ページ    http://localhost/
+- phpMyAdmin-url  http://localhost:8080
+- MailHog-url     http://localhost:8025
+
+- 店舗側予約照合ページ /reserve_match/{id}  
+   ※一般ユーザーの表示したQRコードを読み込み表示
+
 
 ## レポジトリー
 https://github.com/takatsutsu/restaurant-rsv1.git
@@ -125,16 +131,17 @@ DB_PASSWORD=laravel_pass
 ```
 
 ★アプリケーションキーの作成  
-- `＄ docker-compose exec php bash`
-- `＄ php artisan key:generate`
+- `$ docker-compose exec php bash`
+- `$ php artisan key:generate`
 
 ★マイグレーションの実行  
-- `＄ docker-compose exec php bash`  
-- `＄ php artisan migrate`
+- `$ docker-compose exec php bash`  
+- `$ php artisan migrate`
 
 ★シーディングの実行  
-- `＄ docker-compose exec php bash`  
-- `＄ php artisan db:seed`  
+- `$ docker-compose exec php bash`  
+- `$ php artisan migrate:fresh`
+- `$ php artisan db:seed`  
   ※ シーディングをやり直す場合は  
   - `＄php artisan migrate:fresh` を先に行って  
   - `$ php artisan db:seed`を実行  
@@ -234,60 +241,8 @@ DB_PASSWORD=laravel_pass
   - 本番環境用    .env.prodを作成   $ cp .env.example .env.prod
 
   - テスト環境   環境変数を記載  
-      ```
-      APP_NAME=Laravel
-      APP_ENV=local
-      APP_KEY=base64:NZ1wsgKrZR3Xbkk/NXUngH+p5On6th96xDFluJBQYEo=
-      APP_DEBUG=true
-      APP_URL=http://localhost
 
-      LOG_CHANNEL=stack
-      LOG_DEPRECATIONS_CHANNEL=null
-      LOG_LEVEL=debug
 
-      DB_CONNECTION=mysql
-      DB_HOST=mysql
-      DB_PORT=3306
-      DB_DATABASE=laravel_db%{#ffdc00}
-      DB_USERNAME=laravel_user
-      DB_PASSWORD=laravel_pass
-
-      BROADCAST_DRIVER=log
-      CACHE_DRIVER=file
-      FILESYSTEM_DRIVER=local
-      QUEUE_CONNECTION=sync
-      SESSION_DRIVER=file
-      SESSION_LIFETIME=120
-
-      MEMCACHED_HOST=127.0.0.1
-
-      REDIS_HOST=127.0.0.1
-      REDIS_PASSWORD=null
-      REDIS_PORT=6379
-
-      MAIL_MAILER=smtp
-      MAIL_HOST=mailhog
-      MAIL_PORT=1025
-      MAIL_USERNAME=null
-      MAIL_PASSWORD=null
-      MAIL_ENCRYPTION=null
-      MAIL_FROM_ADDRESS=info@example.com
-      MAIL_FROM_NAME="${APP_NAME}"
-
-      AWS_ACCESS_KEY_ID=
-      AWS_SECRET_ACCESS_KEY=
-      AWS_DEFAULT_REGION=us-east-1
-      AWS_BUCKET=
-      AWS_USE_PATH_STYLE_ENDPOINT=false
-
-      PUSHER_APP_ID=
-      PUSHER_APP_KEY=
-      PUSHER_APP_SECRET=
-      PUSHER_APP_CLUSTER=mt1
-
-      MIX_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
-      MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
-      ```
     以下、修正箇所。
       ```
       DB_CONNECTION=mysql
@@ -296,86 +251,34 @@ DB_PASSWORD=laravel_pass
       DB_DATABASE=laravel_db
       DB_USERNAME=laravel_user
       DB_PASSWORD=laravel_pass
+    ```  
 
       修正後、.env.testから .envにコピー
     $ cp .env.test .env
-    ```
-  - 本番環境用であれば、.env.prodに以下の環境変数を記載
-    ```
-     APP_NAME=Laravel
-     APP_ENV=product
-     APP_KEY=base64:sskyua48U0ODeaDEe4LsijE3ePedP5rrqUqh4v/DrUg=
-     APP_DEBUG=FALSE
-     APP_URL=
+    
 
-     LOG_CHANNEL=stack
-     LOG_DEPRECATIONS_CHANNEL=null
-     LOG_LEVEL=debug
+  - 本番環境 .env.prodに以下の環  境変数を記載。
 
-     DB_CONNECTION=mysql
-     DB_HOST=database-1.cf4koi8qu5r4.ap-northeast-3.rds.amazonaws.com
-     DB_PORT=3306
-     DB_DATABASE=laravel_db
-     DB_USERNAME=
-     DB_PASSWORD=
-
-     BROADCAST_DRIVER=log
-     CACHE_DRIVER=file
-     FILESYSTEM_DRIVER=local
-     QUEUE_CONNECTION=sync
-     SESSION_DRIVER=file
-     SESSION_LIFETIME=120
-
-     MEMCACHED_HOST=127.0.0.1
-
-     REDIS_HOST=127.0.0.1
-     REDIS_PASSWORD=null
-     REDIS_PORT=6379
-
-     MAIL_MAILER=smtp
-     MAIL_HOST=localhost
-     MAIL_PORT=1025
-     MAIL_USERNAME=null
-     MAIL_PASSWORD=null
-     MAIL_ENCRYPTION=null
-     MAIL_FROM_ADDRESS=info@example.com
-     MAIL_FROM_NAME="${APP_NAME}"
-
-     AWS_ACCESS_KEY_ID=
-     AWS_SECRET_ACCESS_KEY=
-     AWS_DEFAULT_REGION=ap-northeast-3
-     AWS_BUCKET=takatsutsu-aws-fileserver-07
-     AWS_USE_PATH_STYLE_ENDPOINT=false
-
-     PUSHER_APP_ID=
-     PUSHER_APP_KEY=
-     PUSHER_APP_SECRET=
-     PUSHER_APP_CLUSTER=mt1
-
-     MIX_PUSHER_APP_KEY="${PUSHER_APP_KEY}"
-     MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
-
-     DB_CONNECTION=mysql
-     DB_HOST=mysql
-     DB_PORT=3306
-     DB_DATABASE=laravel_db
-     DB_USERNAME=laravel_user
-     DB_PASSWORD=laravel_pass
-    ```
-    本番環境の場合、.env.prodから .envにコピー  
+   
+  - 本番環境の場合、.env.prodから .envにコピー  
      $ cp .env.prod .env  
-     コピー後、以下の項目は環境によって異なるため各自で設定。  
+     コピー後、以下の項目は環境によって異なるため、直接.envファイルを各自で設定。  
+     以下の設定項目を修正。
      また機密情報のためGITHUBにあげるときは、以下項目は記載しないよう留意する。
-
+　　　
     ```
-      APP_URL=
-
-      DB_USERNAME=admin
-      DB_PASSWORD=
-
-      AWS_ACCESS_KEY_ID=
-      AWS_SECRET_ACCESS_KEY=
-　
+     APP_KEY=  
+     APP_DEBUG=FALSE
+     APP_URL=  
+     DB_HOST=  
+     DB_USERNAME=  
+     DB_PASSWORD=""
+     AWS_ACCESS_KEY_ID=  
+     AWS_SECRET_ACCESS_KEY=  
+     AWS_DEFAULT_REGION=  
+     AWS_BUCKET=  
+     AWS_USE_PATH_STYLE_ENDPOINT=false  
+     ```
 **ログイン権限による左メニューの違い**  
   - ログインしていない場合  
        ①Home  
