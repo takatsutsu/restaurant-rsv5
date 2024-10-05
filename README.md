@@ -19,9 +19,19 @@
 
 ## アプリケーション URL
 
+<<<<<<< HEAD
 - 店舗一覧ページ http://localhost/
 - phpMyAdmin-url http://localhost:8080
 - MailHog-url http://localhost:8025
+=======
+- 店舗一覧ページ    http://localhost/
+- phpMyAdmin-url  http://localhost:8080
+- MailHog-url     http://localhost:8025
+
+- 店舗側予約照合ページ /reserve_match/{id}  
+   ※一般ユーザーの表示したQRコードを読み込み表示
+
+>>>>>>> 995a10072fd317bf24979cbb11b27690c6376e5d
 
 ## レポジトリー
 
@@ -129,6 +139,7 @@ DB_USERNAME=laravel_user
 DB_PASSWORD=laravel_pass
 ```
 
+<<<<<<< HEAD
 ★ アプリケーションキーの作成
 
 - `$ docker-compose exec php bash`
@@ -138,6 +149,52 @@ DB_PASSWORD=laravel_pass
 
 - `$ docker-compose exec php bash`
 - `$ php artisan migrate`
+=======
+★アプリケーションキーの作成  
+- `$ docker-compose exec php bash`
+- `$ php artisan key:generate`
+
+★マイグレーションの実行  
+- `$ docker-compose exec php bash`  
+- `$ php artisan migrate`
+
+★シーディングの実行  
+- `$ docker-compose exec php bash`  
+- `$ php artisan migrate:fresh`
+- `$ php artisan db:seed`  
+  ※ シーディングをやり直す場合は  
+  - `＄php artisan migrate:fresh` を先に行って  
+  - `$ php artisan db:seed`を実行  
+ シーダーで作成するデータ  
+   １.users  
+     ①管理者          admin@gmail.com  
+     ②店舗管理者会員   20ユーザを登録  
+    　　　　　　shop0001@gmail.comから  
+    　　　　　　shop0002@gmail.com  
+    　　　　　　　　　　・  
+    　　　　　　　　　　・  
+    　　　　　　　　　　・  
+    　　　　　　shop0020@gmail.com  
+     ③一般会員        17ユーザを登録  
+    　　　　　　aa@gmail.com  
+    　　　　　　bb@gmail.com  
+    　　　　　　cc@gmail.com  
+    　　　　　　　　　　・  
+    　　　　　　　　　　・  
+    　　　　　　　　　　・  
+    　　　　　　qq@gmail.com  
+    　　　※ログイン初期パスワードは全て password  
+    2.shops  
+    　　店舗管理者会員と連動連動して20店舗を登録  
+    ３.areas  
+      全国都道府県を登録  
+    4.genres  
+    　　1 イタリアン  
+    　　2 ラーメン  
+    　　3 居酒屋  
+    　　4 寿司  
+    　　5 焼肉  
+>>>>>>> 995a10072fd317bf24979cbb11b27690c6376e5d
 
 ★ シーディングの実行
 
@@ -253,6 +310,7 @@ DB_PASSWORD=laravel_pass
   - .env ファイルについては以下の内容を直接.env に記載するのではなく
     予め、以下のファイルを作成。
 
+<<<<<<< HEAD
   - テスト環境用 .env.test を作成 $ cp .env.example .env.test
   - 本番環境用 .env.prod を作成 $ cp .env.example .env.prod
 
@@ -285,13 +343,56 @@ DB_PASSWORD=laravel_pass
      DB_HOST=  
      DB_USERNAME=  
      DB_PASSWORD=
+=======
+  - テスト環境用  .env.testを作成   $ cp .env.example .env.test
+  - 本番環境用    .env.prodを作成   $ cp .env.example .env.prod
+
+  - テスト環境   環境変数を記載  
+
+
+    以下、修正箇所。
+      ```
+      DB_CONNECTION=mysql
+      DB_HOST=mysql
+      DB_PORT=3306
+      DB_DATABASE=laravel_db
+      DB_USERNAME=laravel_user
+      DB_PASSWORD=laravel_pass
+    ```  
+
+      修正後、.env.testから .envにコピー
+    $ cp .env.test .env
+    
+
+  - 本番環境 .env.prodに以下の環  境変数を記載。
+
+   
+  - 本番環境の場合、.env.prodから .envにコピー  
+     $ cp .env.prod .env  
+     コピー後、以下の項目は環境によって異なるため、直接.envファイルを各自で設定。  
+     以下の設定項目を修正。
+     また機密情報のためGITHUBにあげるときは、以下項目は記載しないよう留意する。
+　　　
+    ```
+     APP_KEY=  
+     APP_DEBUG=FALSE
+     APP_URL=  
+     DB_HOST=  
+     DB_USERNAME=  
+     DB_PASSWORD=""
+>>>>>>> 995a10072fd317bf24979cbb11b27690c6376e5d
      AWS_ACCESS_KEY_ID=  
      AWS_SECRET_ACCESS_KEY=  
      AWS_DEFAULT_REGION=  
      AWS_BUCKET=  
      AWS_USE_PATH_STYLE_ENDPOINT=false  
+<<<<<<< HEAD
     `
     **ログイン権限による左上メニューの違い**
+=======
+     ```
+**ログイン権限による左メニューの違い**  
+>>>>>>> 995a10072fd317bf24979cbb11b27690c6376e5d
   - ログインしていない場合  
      ①Home  
      ②Registration 　　(一般会員登録ページ)  
