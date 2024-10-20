@@ -43,7 +43,7 @@
                         <form class="my_favo_form" action="/detail" method="get">
                             @csrf
                             <input type="hidden" name="id_detail" value="{{$favorite->shop_id}}" />
-                            <img src="{{asset('storage/' . $favorite->shop->genre->genre_picture) }}" alt="{{ $favorite->shop->name }}">
+                            <img src="{{ Storage::url($shop->genre->genre_picture) }}" alt="Shop Picture">
                             <h2>{{ $favorite->shop->shop_name }}</h2>
                             <p>#{{ $favorite->shop->area->area_name  }} #{{ $favorite->shop->genre->genre_name }}</p>
                             <div class="my_favo_btn-group">
