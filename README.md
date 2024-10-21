@@ -1,3 +1,5 @@
+abcde
+
 # restaurant-rsv1
 
 ##README 2024/09/28 修正
@@ -318,4 +320,5 @@ DB_PASSWORD=laravel_pass
    ①Home  
    ②Logout  
    ③MyPage (一般会員マイページ)
+
 # restaurant-rsv5
